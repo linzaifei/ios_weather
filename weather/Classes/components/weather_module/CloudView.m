@@ -9,7 +9,9 @@
 @interface CloudView()
 @property(nonatomic,strong)CAReplicatorLayer *relayer;
 @property(nonatomic,strong)CABasicAnimation *animation;
-@property(nonatomic,strong)CAShapeLayer *celllayer;
+@property(nonatomic,strong)CALayer *celllayer;
+
+
 
 @end
 @implementation CloudView
@@ -25,16 +27,17 @@
 
 -(void)setUI{
     
-    self.relayer = [CAReplicatorLayer layer];
-    self.relayer.frame = CGRectMake(0, 30, 400,260);
-   
-    self.celllayer = [CAShapeLayer layer];
-    self.celllayer.fillColor = [UIColor orangeColor].CGColor;
-    self.celllayer.path = [self path].CGPath;
+    self.mainColor = [UIColor orangeColor];
+    self.color = [UIColor grayColor];
+    self.count = 4;
+    self.space = 60;
+    self.duration = 15;
+    self.delayTime =2;
     
-    self.relayer.instanceCount =4;
-    self.relayer.instanceTransform = CATransform3DMakeTranslation(0, 70, 0);
-    self.relayer.instanceDelay = 2;
+    
+    self.relayer = [CAReplicatorLayer layer];
+
+    self.celllayer = [self cell1Layer];
     self.relayer.masksToBounds = YES;
     
 ///    self.relayer.backgroundColor = [UIColor blackColor].CGColor;
@@ -43,9 +46,7 @@
     
     [self.relayer addSublayer: self.celllayer];
     [self.layer addSublayer:self.relayer];
-    
-//    self.celllayer.transform = CATransform3DMakeScale(0.4, 0.7, 1);
-    
+///    self.celllayer.transform = CATransform3DMakeScale(0.4, 0.7, 1);
     self.animation = [CABasicAnimation animation];
 }
 
@@ -54,10 +55,13 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    
+    self.relayer.frame = CGRectMake(0, 30, rect.size.width,rect.size.height);
+    self.relayer.instanceCount =self.count;
+    self.relayer.instanceTransform = CATransform3DMakeTranslation(0, self.space, 0);
+    self.relayer.instanceDelay = self.delayTime;
     self.animation.keyPath = @"position.x";
-    self.animation.duration = 15;
-    self.animation.fromValue = @0;
+    self.animation.duration = self.duration;
+    self.animation.fromValue = @(-self.celllayer.frame.size.width);
     self.animation.toValue = @(rect.size.width);
     
     self.animation.autoreverses = YES;
@@ -66,17 +70,27 @@
 }
 
 
--(UIBezierPath *)path{
-    
-    
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 80, 30) cornerRadius:20];
 
-//    [path addArcWithCenter:CGPointMake(0, 30) radius:15 startAngle:M_PI_2 endAngle: -M_PI_2 clockwise:YES];
-//    [path addLineToPoint:CGPointMake(50, 15)];
-//    [path addArcWithCenter:CGPointMake(50, 30) radius:15 startAngle:-M_PI_2 endAngle:M_PI_2 clockwise:YES];
-//    [path addLineToPoint:CGPointMake(0, 45)];
-  
-    return path;
+-(CALayer *)cell1Layer{
+    CALayer *layer = [CALayer layer];
+    layer.frame = CGRectMake(-80, 0, 80, 40);
+    
+    CAShapeLayer *la1 = [CAShapeLayer layer];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 80, 30) cornerRadius:15];
+    la1.path = path.CGPath;
+    la1.fillColor = [UIColor orangeColor].CGColor;
+    
+    CAShapeLayer *la2 = [CAShapeLayer layer];
+    UIBezierPath *path1 = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 20, 45, 20) cornerRadius:10];
+    la2.path = path1.CGPath;
+    la2.fillColor = [UIColor grayColor].CGColor;
+    
+    [layer addSublayer:la1];
+    [layer addSublayer:la2];
+    
+    
+    return  layer;
+    
 }
 
 
