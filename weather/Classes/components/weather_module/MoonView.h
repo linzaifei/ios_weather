@@ -10,6 +10,23 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MoonView : BaseView
+/* 月亮半径 默认50*/
+@property(nonatomic,assign)CGFloat radius;
+
+/* 间距 默认 30 */
+@property(nonatomic,assign)CGFloat space;
+
+
+/* 月亮颜色 默认 orange  */
+@property(nonatomic,strong)UIColor *color;
+
+/* 星星数目 */
+@property(nonatomic,assign)int count ;
+
+/* 星星颜色 */
+@property(nonatomic,strong)UIColor *starColor ;
+
+
 
 @end
 
