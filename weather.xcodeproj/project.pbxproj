@@ -10,9 +10,7 @@
 		8E2D1CBA25E7872100EBA92E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CB925E7872100EBA92E /* AppDelegate.m */; };
 		8E2D1CBD25E7872100EBA92E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CBC25E7872100EBA92E /* SceneDelegate.m */; };
 		8E2D1CC025E7872100EBA92E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CBF25E7872100EBA92E /* ViewController.m */; };
-		8E2D1CC325E7872100EBA92E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2D1CC125E7872100EBA92E /* Main.storyboard */; };
 		8E2D1CC525E7872200EBA92E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E2D1CC425E7872200EBA92E /* Assets.xcassets */; };
-		8E2D1CC825E7872200EBA92E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E2D1CC625E7872200EBA92E /* LaunchScreen.storyboard */; };
 		8E2D1CCB25E7872200EBA92E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CCA25E7872200EBA92E /* main.m */; };
 		8E2D1CD525E7872200EBA92E /* weatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CD425E7872200EBA92E /* weatherTests.m */; };
 		8E2D1CE025E7872200EBA92E /* weatherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CDF25E7872200EBA92E /* weatherUITests.m */; };
@@ -22,7 +20,6 @@
 		8E2D1D3025E7989D00EBA92E /* UIView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D2525E7989D00EBA92E /* UIView+category.m */; };
 		8E2D1D3125E7989D00EBA92E /* colors.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D2A25E7989D00EBA92E /* colors.m */; };
 		8E2D1D3225E7989D00EBA92E /* iconfont.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D2C25E7989D00EBA92E /* iconfont.m */; };
-		8E2D1D3325E7989D00EBA92E /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E2D1D2D25E7989D00EBA92E /* iconfont.ttf */; };
 		8E2D1D5125E79B6C00EBA92E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D3C25E79B6C00EBA92E /* BaseViewController.m */; };
 		8E2D1D5225E79B6C00EBA92E /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D3D25E79B6C00EBA92E /* BaseNavigationController.m */; };
 		8E2D1D5325E79B6C00EBA92E /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D4225E79B6C00EBA92E /* BaseView.m */; };
@@ -36,6 +33,12 @@
 		8E2D1D6E25E79BF000EBA92E /* RainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D6D25E79BF000EBA92E /* RainView.m */; };
 		8E2D1D7425E79BF900EBA92E /* SnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D7325E79BF900EBA92E /* SnowView.m */; };
 		8E2D1D7A25E79C0600EBA92E /* CloudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D7925E79C0600EBA92E /* CloudView.m */; };
+		8E34F90A25ECE3DA002B16B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E34F90925ECE3DA002B16B1 /* LaunchScreen.storyboard */; };
+		8E9C8F8A25ECD0090062FB69 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E9C8F8925ECD0090062FB69 /* weather.ttf */; };
+		8E9C8F9225ECD0210062FB69 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E9C8F9125ECD0210062FB69 /* iconfont.ttf */; };
+		8E9C8F9825ECD4DC0062FB69 /* MainTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8F9625ECD4DC0062FB69 /* MainTabbarViewController.m */; };
+		8E9C8FA925ECD54C0062FB69 /* WeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8FA825ECD54C0062FB69 /* WeatherController.m */; };
+		8E9C8FB725ECD58E0062FB69 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8FB625ECD58E0062FB69 /* MineController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +69,7 @@
 		8E2D1CBC25E7872100EBA92E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		8E2D1CBE25E7872100EBA92E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8E2D1CBF25E7872100EBA92E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8E2D1CC225E7872100EBA92E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E2D1CC425E7872200EBA92E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8E2D1CC725E7872200EBA92E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E2D1CC925E7872200EBA92E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E2D1CCA25E7872200EBA92E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E2D1CD025E7872200EBA92E /* weatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = weatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,7 +87,6 @@
 		8E2D1D2925E7989D00EBA92E /* colors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colors.h; sourceTree = "<group>"; };
 		8E2D1D2A25E7989D00EBA92E /* colors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colors.m; sourceTree = "<group>"; };
 		8E2D1D2C25E7989D00EBA92E /* iconfont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iconfont.m; sourceTree = "<group>"; };
-		8E2D1D2D25E7989D00EBA92E /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		8E2D1D2E25E7989D00EBA92E /* iconfont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iconfont.h; sourceTree = "<group>"; };
 		8E2D1D3C25E79B6C00EBA92E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		8E2D1D3D25E79B6C00EBA92E /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
@@ -116,6 +116,15 @@
 		8E2D1D7325E79BF900EBA92E /* SnowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnowView.m; sourceTree = "<group>"; };
 		8E2D1D7825E79C0600EBA92E /* CloudView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudView.h; sourceTree = "<group>"; };
 		8E2D1D7925E79C0600EBA92E /* CloudView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudView.m; sourceTree = "<group>"; };
+		8E34F90925ECE3DA002B16B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8E9C8F8925ECD0090062FB69 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = weather.ttf; sourceTree = "<group>"; };
+		8E9C8F9125ECD0210062FB69 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		8E9C8F9625ECD4DC0062FB69 /* MainTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabbarViewController.m; sourceTree = "<group>"; };
+		8E9C8F9725ECD4DC0062FB69 /* MainTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabbarViewController.h; sourceTree = "<group>"; };
+		8E9C8FA725ECD54C0062FB69 /* WeatherController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherController.h; sourceTree = "<group>"; };
+		8E9C8FA825ECD54C0062FB69 /* WeatherController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherController.m; sourceTree = "<group>"; };
+		8E9C8FB525ECD58E0062FB69 /* MineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
+		8E9C8FB625ECD58E0062FB69 /* MineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +203,9 @@
 				8E2D1CBC25E7872100EBA92E /* SceneDelegate.m */,
 				8E2D1CBE25E7872100EBA92E /* ViewController.h */,
 				8E2D1CBF25E7872100EBA92E /* ViewController.m */,
-				8E2D1CC125E7872100EBA92E /* Main.storyboard */,
 				8E2D1CC425E7872200EBA92E /* Assets.xcassets */,
-				8E2D1CC625E7872200EBA92E /* LaunchScreen.storyboard */,
 				8E2D1CC925E7872200EBA92E /* Info.plist */,
+				8E34F90925ECE3DA002B16B1 /* LaunchScreen.storyboard */,
 				8E2D1CCA25E7872200EBA92E /* main.m */,
 			);
 			path = weather;
@@ -262,6 +270,9 @@
 		8E2D1D2125E796B900EBA92E /* views */ = {
 			isa = PBXGroup;
 			children = (
+				8E9C8FB325ECD5730062FB69 /* mine */,
+				8E9C8F9C25ECD4FD0062FB69 /* weather */,
+				8E9C8F7B25ECCE780062FB69 /* main */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -299,7 +310,8 @@
 		8E2D1D2B25E7989D00EBA92E /* iconfont */ = {
 			isa = PBXGroup;
 			children = (
-				8E2D1D2D25E7989D00EBA92E /* iconfont.ttf */,
+				8E9C8F9125ECD0210062FB69 /* iconfont.ttf */,
+				8E9C8F8925ECD0090062FB69 /* weather.ttf */,
 				8E2D1D2E25E7989D00EBA92E /* iconfont.h */,
 				8E2D1D2C25E7989D00EBA92E /* iconfont.m */,
 			);
@@ -384,6 +396,33 @@
 			children = (
 			);
 			path = cloud;
+			sourceTree = "<group>";
+		};
+		8E9C8F7B25ECCE780062FB69 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				8E9C8F9725ECD4DC0062FB69 /* MainTabbarViewController.h */,
+				8E9C8F9625ECD4DC0062FB69 /* MainTabbarViewController.m */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		8E9C8F9C25ECD4FD0062FB69 /* weather */ = {
+			isa = PBXGroup;
+			children = (
+				8E9C8FA725ECD54C0062FB69 /* WeatherController.h */,
+				8E9C8FA825ECD54C0062FB69 /* WeatherController.m */,
+			);
+			path = weather;
+			sourceTree = "<group>";
+		};
+		8E9C8FB325ECD5730062FB69 /* mine */ = {
+			isa = PBXGroup;
+			children = (
+				8E9C8FB525ECD58E0062FB69 /* MineController.h */,
+				8E9C8FB625ECD58E0062FB69 /* MineController.m */,
+			);
+			path = mine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,10 +529,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E2D1D3325E7989D00EBA92E /* iconfont.ttf in Resources */,
-				8E2D1CC825E7872200EBA92E /* LaunchScreen.storyboard in Resources */,
 				8E2D1CC525E7872200EBA92E /* Assets.xcassets in Resources */,
-				8E2D1CC325E7872100EBA92E /* Main.storyboard in Resources */,
+				8E34F90A25ECE3DA002B16B1 /* LaunchScreen.storyboard in Resources */,
+				8E9C8F8A25ECD0090062FB69 /* weather.ttf in Resources */,
+				8E9C8F9225ECD0210062FB69 /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,8 +606,10 @@
 				8E2D1D6825E79BE200EBA92E /* MoonView.m in Sources */,
 				8E2D1D5425E79B6C00EBA92E /* BaseCollectionView.m in Sources */,
 				8E2D1D7425E79BF900EBA92E /* SnowView.m in Sources */,
+				8E9C8F9825ECD4DC0062FB69 /* MainTabbarViewController.m in Sources */,
 				8E2D1D2F25E7989D00EBA92E /* UIImage+category.m in Sources */,
 				8E2D1D5525E79B6C00EBA92E /* Files.m in Sources */,
+				8E9C8FA925ECD54C0062FB69 /* WeatherController.m in Sources */,
 				8E2D1D5825E79B6C00EBA92E /* Links.m in Sources */,
 				8E2D1D3225E7989D00EBA92E /* iconfont.m in Sources */,
 				8E2D1CBA25E7872100EBA92E /* AppDelegate.m in Sources */,
@@ -581,6 +622,7 @@
 				8E2D1D5325E79B6C00EBA92E /* BaseView.m in Sources */,
 				8E2D1D6E25E79BF000EBA92E /* RainView.m in Sources */,
 				8E2D1D7A25E79C0600EBA92E /* CloudView.m in Sources */,
+				8E9C8FB725ECD58E0062FB69 /* MineController.m in Sources */,
 				8E2D1D5F25E79BD200EBA92E /* SunView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,25 +657,6 @@
 			targetProxy = 8E2D1CDC25E7872200EBA92E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		8E2D1CC125E7872100EBA92E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E2D1CC225E7872100EBA92E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8E2D1CC625E7872200EBA92E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E2D1CC725E7872200EBA92E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8E2D1CE225E7872200EBA92E /* Debug */ = {
