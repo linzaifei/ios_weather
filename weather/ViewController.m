@@ -13,6 +13,7 @@
 #import "UIImage+category.h"
 #import "CloudView.h"
 #import "MoonView.h"
+#import "iconfont.h"
 @interface ViewController ()
 @property(nonatomic,strong)UIScrollView *scrollView ;
 @end
@@ -35,6 +36,9 @@
     [self.scrollView addSubview:cloud];
     MoonView *moon = [[MoonView alloc] init];
     [self.scrollView addSubview:moon];
+    
+    
+
     
     
 //    UIImageView *imagview = [[UIImageView alloc] init];
@@ -85,7 +89,8 @@
         make.height.equalTo(@260);
         make.bottom.equalTo(self.scrollView.mas_bottom);
     }];
- 
+   
+   
     
     
     

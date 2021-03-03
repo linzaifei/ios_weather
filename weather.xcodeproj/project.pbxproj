@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E29204125EF6CC300BF0EE0 /* CodeToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29204025EF6CC300BF0EE0 /* CodeToString.m */; };
+		8E29204B25EF6FE800BF0EE0 /* HourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29204A25EF6FE800BF0EE0 /* HourView.m */; };
+		8E29206625EF7FE300BF0EE0 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E29206525EF7FE300BF0EE0 /* iconfont.ttf */; };
+		8E29206E25EF7FED00BF0EE0 /* iconfont.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E29206D25EF7FED00BF0EE0 /* iconfont.json */; };
+		8E29207325EF80B100BF0EE0 /* hour.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E29207225EF80B100BF0EE0 /* hour.json */; };
+		8E29207A25EF82AC00BF0EE0 /* HourModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29207925EF82AC00BF0EE0 /* HourModal.m */; };
 		8E2D1CBA25E7872100EBA92E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CB925E7872100EBA92E /* AppDelegate.m */; };
 		8E2D1CBD25E7872100EBA92E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CBC25E7872100EBA92E /* SceneDelegate.m */; };
 		8E2D1CC025E7872100EBA92E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CBF25E7872100EBA92E /* ViewController.m */; };
@@ -34,8 +40,6 @@
 		8E2D1D7425E79BF900EBA92E /* SnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D7325E79BF900EBA92E /* SnowView.m */; };
 		8E2D1D7A25E79C0600EBA92E /* CloudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1D7925E79C0600EBA92E /* CloudView.m */; };
 		8E34F90A25ECE3DA002B16B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E34F90925ECE3DA002B16B1 /* LaunchScreen.storyboard */; };
-		8E34F92325EDC8DF002B16B1 /* weather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E34F92125EDC8DF002B16B1 /* weather.ttf */; };
-		8E34F92425EDC8DF002B16B1 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E34F92225EDC8DF002B16B1 /* iconfont.ttf */; };
 		8E34FA0D25EDCF93002B16B1 /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E34FA0C25EDCF93002B16B1 /* WeatherView.m */; };
 		8E34FA1925EE15F6002B16B1 /* PreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E34FA1825EE15F6002B16B1 /* PreviewView.m */; };
 		8E34FA1F25EE2623002B16B1 /* DayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E34FA1E25EE2623002B16B1 /* DayView.m */; };
@@ -65,6 +69,15 @@
 		077966293BD0F4B10388EE83 /* Pods-weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather.release.xcconfig"; path = "Target Support Files/Pods-weather/Pods-weather.release.xcconfig"; sourceTree = "<group>"; };
 		35ED2B2C551B1A6D97CAB9C3 /* Pods_weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C7479F394120C90E060D72C /* Pods-weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weather.debug.xcconfig"; path = "Target Support Files/Pods-weather/Pods-weather.debug.xcconfig"; sourceTree = "<group>"; };
+		8E29203F25EF6CC300BF0EE0 /* CodeToString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CodeToString.h; sourceTree = "<group>"; };
+		8E29204025EF6CC300BF0EE0 /* CodeToString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CodeToString.m; sourceTree = "<group>"; };
+		8E29204925EF6FE800BF0EE0 /* HourView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HourView.h; sourceTree = "<group>"; };
+		8E29204A25EF6FE800BF0EE0 /* HourView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourView.m; sourceTree = "<group>"; };
+		8E29206525EF7FE300BF0EE0 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		8E29206D25EF7FED00BF0EE0 /* iconfont.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iconfont.json; sourceTree = "<group>"; };
+		8E29207225EF80B100BF0EE0 /* hour.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hour.json; sourceTree = "<group>"; };
+		8E29207825EF82AC00BF0EE0 /* HourModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HourModal.h; sourceTree = "<group>"; };
+		8E29207925EF82AC00BF0EE0 /* HourModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourModal.m; sourceTree = "<group>"; };
 		8E2D1CB525E7872100EBA92E /* weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2D1CB825E7872100EBA92E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E2D1CB925E7872100EBA92E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,8 +133,6 @@
 		8E2D1D7825E79C0600EBA92E /* CloudView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudView.h; sourceTree = "<group>"; };
 		8E2D1D7925E79C0600EBA92E /* CloudView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CloudView.m; sourceTree = "<group>"; };
 		8E34F90925ECE3DA002B16B1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8E34F92125EDC8DF002B16B1 /* weather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = weather.ttf; sourceTree = "<group>"; };
-		8E34F92225EDC8DF002B16B1 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		8E34FA0B25EDCF93002B16B1 /* WeatherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherView.h; sourceTree = "<group>"; };
 		8E34FA0C25EDCF93002B16B1 /* WeatherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherView.m; sourceTree = "<group>"; };
 		8E34FA1725EE15F6002B16B1 /* PreviewView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreviewView.h; sourceTree = "<group>"; };
@@ -177,6 +188,25 @@
 				35ED2B2C551B1A6D97CAB9C3 /* Pods_weather.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E29204525EF6CCA00BF0EE0 /* ut */ = {
+			isa = PBXGroup;
+			children = (
+				8E29203F25EF6CC300BF0EE0 /* CodeToString.h */,
+				8E29204025EF6CC300BF0EE0 /* CodeToString.m */,
+				8E29207225EF80B100BF0EE0 /* hour.json */,
+			);
+			path = ut;
+			sourceTree = "<group>";
+		};
+		8E29207725EF829700BF0EE0 /* modal */ = {
+			isa = PBXGroup;
+			children = (
+				8E29207825EF82AC00BF0EE0 /* HourModal.h */,
+				8E29207925EF82AC00BF0EE0 /* HourModal.m */,
+			);
+			path = modal;
 			sourceTree = "<group>";
 		};
 		8E2D1CAC25E7872100EBA92E = {
@@ -319,8 +349,8 @@
 		8E2D1D2B25E7989D00EBA92E /* iconfont */ = {
 			isa = PBXGroup;
 			children = (
-				8E34F92225EDC8DF002B16B1 /* iconfont.ttf */,
-				8E34F92125EDC8DF002B16B1 /* weather.ttf */,
+				8E29206D25EF7FED00BF0EE0 /* iconfont.json */,
+				8E29206525EF7FE300BF0EE0 /* iconfont.ttf */,
 				8E2D1D2E25E7989D00EBA92E /* iconfont.h */,
 				8E2D1D2C25E7989D00EBA92E /* iconfont.m */,
 			);
@@ -362,11 +392,11 @@
 			isa = PBXGroup;
 			children = (
 				8E2D1D4625E79B6C00EBA92E /* utils.h */,
-				8E2D1D4725E79B6C00EBA92E /* Reg.h */,
-				8E2D1D4825E79B6C00EBA92E /* Files.m */,
-				8E2D1D4925E79B6C00EBA92E /* Reg.m */,
 				8E2D1D4A25E79B6C00EBA92E /* utils.m */,
+				8E2D1D4725E79B6C00EBA92E /* Reg.h */,
+				8E2D1D4925E79B6C00EBA92E /* Reg.m */,
 				8E2D1D4B25E79B6C00EBA92E /* Files.h */,
+				8E2D1D4825E79B6C00EBA92E /* Files.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -416,6 +446,8 @@
 				8E34FA1825EE15F6002B16B1 /* PreviewView.m */,
 				8E34FA1D25EE2623002B16B1 /* DayView.h */,
 				8E34FA1E25EE2623002B16B1 /* DayView.m */,
+				8E29204925EF6FE800BF0EE0 /* HourView.h */,
+				8E29204A25EF6FE800BF0EE0 /* HourView.m */,
 			);
 			path = weather;
 			sourceTree = "<group>";
@@ -432,6 +464,8 @@
 		8E9C8F9C25ECD4FD0062FB69 /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				8E29207725EF829700BF0EE0 /* modal */,
+				8E29204525EF6CCA00BF0EE0 /* ut */,
 				8E34FA0A25EDCF33002B16B1 /* weather */,
 				8E9C8FA725ECD54C0062FB69 /* WeatherController.h */,
 				8E9C8FA825ECD54C0062FB69 /* WeatherController.m */,
@@ -552,9 +586,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E34F92425EDC8DF002B16B1 /* iconfont.ttf in Resources */,
+				8E29207325EF80B100BF0EE0 /* hour.json in Resources */,
+				8E29206625EF7FE300BF0EE0 /* iconfont.ttf in Resources */,
+				8E29206E25EF7FED00BF0EE0 /* iconfont.json in Resources */,
 				8E2D1CC525E7872200EBA92E /* Assets.xcassets in Resources */,
-				8E34F92325EDC8DF002B16B1 /* weather.ttf in Resources */,
 				8E34F90A25ECE3DA002B16B1 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,11 +663,13 @@
 				8E2D1D5125E79B6C00EBA92E /* BaseViewController.m in Sources */,
 				8E34FA0D25EDCF93002B16B1 /* WeatherView.m in Sources */,
 				8E2D1D5725E79B6C00EBA92E /* utils.m in Sources */,
+				8E29204125EF6CC300BF0EE0 /* CodeToString.m in Sources */,
 				8E2D1D6825E79BE200EBA92E /* MoonView.m in Sources */,
 				8E2D1D5425E79B6C00EBA92E /* BaseCollectionView.m in Sources */,
 				8E2D1D7425E79BF900EBA92E /* SnowView.m in Sources */,
 				8E9C8F9825ECD4DC0062FB69 /* MainTabbarViewController.m in Sources */,
 				8E2D1D2F25E7989D00EBA92E /* UIImage+category.m in Sources */,
+				8E29207A25EF82AC00BF0EE0 /* HourModal.m in Sources */,
 				8E2D1D5525E79B6C00EBA92E /* Files.m in Sources */,
 				8E9C8FA925ECD54C0062FB69 /* WeatherController.m in Sources */,
 				8E2D1D5825E79B6C00EBA92E /* Links.m in Sources */,
@@ -647,6 +684,7 @@
 				8E2D1D5325E79B6C00EBA92E /* BaseView.m in Sources */,
 				8E34FA1925EE15F6002B16B1 /* PreviewView.m in Sources */,
 				8E2D1D6E25E79BF000EBA92E /* RainView.m in Sources */,
+				8E29204B25EF6FE800BF0EE0 /* HourView.m in Sources */,
 				8E2D1D7A25E79C0600EBA92E /* CloudView.m in Sources */,
 				8E9C8FB725ECD58E0062FB69 /* MineController.m in Sources */,
 				8E2D1D5F25E79BD200EBA92E /* SunView.m in Sources */,

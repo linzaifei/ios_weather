@@ -11,6 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class WeatherProgressView;
 @interface DayView : BaseView
 
+
+@property(nonatomic,copy)NSArray *dataArr;
+
+
 @end
 
 @interface DayItemView : BaseView
@@ -37,14 +41,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WeatherProgressView : BaseView
 /* 最高温度*/
-@property(nonatomic,assign)CGFloat maxTemp;
+@property(nonatomic,assign)int maxTemp;
 
 /* 最低温度*/
-@property(nonatomic,assign)CGFloat minTemp;
+@property(nonatomic,assign)int minTemp;
 
 /* 进度颜色*/
 @property(nonatomic,strong)UIColor *color;
 
+/* 进度线颜色*/
+@property(nonatomic,strong,readonly)UIColor *lineColor;
 
 @end
 
