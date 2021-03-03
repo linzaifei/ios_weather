@@ -35,10 +35,13 @@
     NSArray *objs = @[@{@"name":@"WeatherController",@"title":@"天气",@"icon":ic_home,},
                       @{@"name":@"MineController",@"title":@"我的",@"icon":ic_mine,},];
 
-    [objs enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    @weakify(self);
+    [objs enumerateObjectsUsingBlock:^(NSDictionary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+     {
+        @strongify(self);
         [self addChildViewController:obj[@"name"] title:obj[@"title"] icon:obj[@"icon"]];
     }];
-    self.tabBar.barTintColor = [UIColor colorWithHexLightColor:COLOR_BLACK darkColor:COLOR_BLACK];
+//    self.tabBar.barTintColor = [UIColor colorWithHexLightColor:COLOR_BLACK darkColor:COLOR_BLACK];
 }
 
 
@@ -47,7 +50,7 @@
     BaseNavigationController *baseNavi = [[BaseNavigationController alloc] initWithRootViewController:control];
     control.tabBarItem.image = [UIImage imageIconfont:icon size:22 color:[UIColor colorWithHexLightColor:COLOR_GREY darkColor:COLOR_GREY]];
 //    control.tabBarItem.selectedImage = [UIImage imageIconfont:icon size:20 color:[UIColor colorWithHexLightColor:COLOR_THEME darkColor:COLOR_THEME]];
-    self.tabBar.tintColor = [UIColor colorWithHexLightColor:COLOR_WHITE darkColor:COLOR_WHITE];
+    self.tabBar.tintColor = [UIColor colorWithHexLightColor:COLOR_THEME darkColor:COLOR_THEME];
     control.title = title;
     [self addChildViewController:baseNavi];
     

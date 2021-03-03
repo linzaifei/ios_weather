@@ -14,7 +14,7 @@ NSString *const ic_home  = @"\U0000e982";
 NSString *const ic_mine  = @"\U0000e983";
 
 
-NSString *const ic_empty  = @"\U0000e697";
+//NSString *const ic_empty  = @"\U0000e697";
 
 @end
 
