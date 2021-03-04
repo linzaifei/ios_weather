@@ -11,8 +11,11 @@
 		8E29204B25EF6FE800BF0EE0 /* HourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29204A25EF6FE800BF0EE0 /* HourView.m */; };
 		8E29206625EF7FE300BF0EE0 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E29206525EF7FE300BF0EE0 /* iconfont.ttf */; };
 		8E29206E25EF7FED00BF0EE0 /* iconfont.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E29206D25EF7FED00BF0EE0 /* iconfont.json */; };
-		8E29207325EF80B100BF0EE0 /* hour.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E29207225EF80B100BF0EE0 /* hour.json */; };
-		8E29207A25EF82AC00BF0EE0 /* HourModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29207925EF82AC00BF0EE0 /* HourModal.m */; };
+		8E29209525F0775600BF0EE0 /* QWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E29209425F0775600BF0EE0 /* QWeather.framework */; };
+		8E29211725F0A8AA00BF0EE0 /* WeatherViewModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29211625F0A8AA00BF0EE0 /* WeatherViewModal.m */; };
+		8E29212F25F0C5C000BF0EE0 /* colorTheme.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E29212E25F0C5C000BF0EE0 /* colorTheme.json */; };
+		8E29213525F0C61F00BF0EE0 /* ThemeTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29213425F0C61F00BF0EE0 /* ThemeTools.m */; };
+		8E29214B25F0CFCB00BF0EE0 /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E29214A25F0CFCB00BF0EE0 /* DateUtil.m */; };
 		8E2D1CBA25E7872100EBA92E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CB925E7872100EBA92E /* AppDelegate.m */; };
 		8E2D1CBD25E7872100EBA92E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CBC25E7872100EBA92E /* SceneDelegate.m */; };
 		8E2D1CC025E7872100EBA92E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2D1CBF25E7872100EBA92E /* ViewController.m */; };
@@ -75,9 +78,15 @@
 		8E29204A25EF6FE800BF0EE0 /* HourView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourView.m; sourceTree = "<group>"; };
 		8E29206525EF7FE300BF0EE0 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		8E29206D25EF7FED00BF0EE0 /* iconfont.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iconfont.json; sourceTree = "<group>"; };
-		8E29207225EF80B100BF0EE0 /* hour.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = hour.json; sourceTree = "<group>"; };
-		8E29207825EF82AC00BF0EE0 /* HourModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HourModal.h; sourceTree = "<group>"; };
-		8E29207925EF82AC00BF0EE0 /* HourModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HourModal.m; sourceTree = "<group>"; };
+		8E29209425F0775600BF0EE0 /* QWeather.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QWeather.framework; path = ../../../../../../../Downloads/QWeather.framework; sourceTree = "<group>"; };
+		8E29209F25F07C9A00BF0EE0 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		8E29211525F0A8AA00BF0EE0 /* WeatherViewModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherViewModal.h; sourceTree = "<group>"; };
+		8E29211625F0A8AA00BF0EE0 /* WeatherViewModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherViewModal.m; sourceTree = "<group>"; };
+		8E29212E25F0C5C000BF0EE0 /* colorTheme.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colorTheme.json; sourceTree = "<group>"; };
+		8E29213325F0C61F00BF0EE0 /* ThemeTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeTools.h; sourceTree = "<group>"; };
+		8E29213425F0C61F00BF0EE0 /* ThemeTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeTools.m; sourceTree = "<group>"; };
+		8E29214925F0CFCB00BF0EE0 /* DateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
+		8E29214A25F0CFCB00BF0EE0 /* DateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
 		8E2D1CB525E7872100EBA92E /* weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E2D1CB825E7872100EBA92E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8E2D1CB925E7872100EBA92E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -153,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E2D1D0F25E78DD200EBA92E /* Pods_weather.framework in Frameworks */,
+				8E29209525F0775600BF0EE0 /* QWeather.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +195,7 @@
 		63962C47425829EBDCB5A463 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8E29209F25F07C9A00BF0EE0 /* libc++abi.tbd */,
 				35ED2B2C551B1A6D97CAB9C3 /* Pods_weather.framework */,
 			);
 			name = Frameworks;
@@ -193,20 +204,22 @@
 		8E29204525EF6CCA00BF0EE0 /* ut */ = {
 			isa = PBXGroup;
 			children = (
+				8E29212E25F0C5C000BF0EE0 /* colorTheme.json */,
 				8E29203F25EF6CC300BF0EE0 /* CodeToString.h */,
 				8E29204025EF6CC300BF0EE0 /* CodeToString.m */,
-				8E29207225EF80B100BF0EE0 /* hour.json */,
+				8E29213325F0C61F00BF0EE0 /* ThemeTools.h */,
+				8E29213425F0C61F00BF0EE0 /* ThemeTools.m */,
 			);
 			path = ut;
 			sourceTree = "<group>";
 		};
-		8E29207725EF829700BF0EE0 /* modal */ = {
+		8E29211125F0A86D00BF0EE0 /* viewModal */ = {
 			isa = PBXGroup;
 			children = (
-				8E29207825EF82AC00BF0EE0 /* HourModal.h */,
-				8E29207925EF82AC00BF0EE0 /* HourModal.m */,
+				8E29211525F0A8AA00BF0EE0 /* WeatherViewModal.h */,
+				8E29211625F0A8AA00BF0EE0 /* WeatherViewModal.m */,
 			);
-			path = modal;
+			path = viewModal;
 			sourceTree = "<group>";
 		};
 		8E2D1CAC25E7872100EBA92E = {
@@ -271,6 +284,7 @@
 		8E2D1CFB25E788D200EBA92E /* sdk */ = {
 			isa = PBXGroup;
 			children = (
+				8E29209425F0775600BF0EE0 /* QWeather.framework */,
 			);
 			path = sdk;
 			sourceTree = "<group>";
@@ -331,8 +345,8 @@
 			children = (
 				8E2D1D2625E7989D00EBA92E /* UIImage+category.h */,
 				8E2D1D2425E7989D00EBA92E /* UIImage+category.m */,
-				8E2D1D2525E7989D00EBA92E /* UIView+category.m */,
 				8E2D1D2725E7989D00EBA92E /* UIView+category.h */,
+				8E2D1D2525E7989D00EBA92E /* UIView+category.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -397,6 +411,8 @@
 				8E2D1D4925E79B6C00EBA92E /* Reg.m */,
 				8E2D1D4B25E79B6C00EBA92E /* Files.h */,
 				8E2D1D4825E79B6C00EBA92E /* Files.m */,
+				8E29214925F0CFCB00BF0EE0 /* DateUtil.h */,
+				8E29214A25F0CFCB00BF0EE0 /* DateUtil.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -464,7 +480,7 @@
 		8E9C8F9C25ECD4FD0062FB69 /* weather */ = {
 			isa = PBXGroup;
 			children = (
-				8E29207725EF829700BF0EE0 /* modal */,
+				8E29211125F0A86D00BF0EE0 /* viewModal */,
 				8E29204525EF6CCA00BF0EE0 /* ut */,
 				8E34FA0A25EDCF33002B16B1 /* weather */,
 				8E9C8FA725ECD54C0062FB69 /* WeatherController.h */,
@@ -586,7 +602,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E29207325EF80B100BF0EE0 /* hour.json in Resources */,
+				8E29212F25F0C5C000BF0EE0 /* colorTheme.json in Resources */,
 				8E29206625EF7FE300BF0EE0 /* iconfont.ttf in Resources */,
 				8E29206E25EF7FED00BF0EE0 /* iconfont.json in Resources */,
 				8E2D1CC525E7872200EBA92E /* Assets.xcassets in Resources */,
@@ -668,8 +684,8 @@
 				8E2D1D5425E79B6C00EBA92E /* BaseCollectionView.m in Sources */,
 				8E2D1D7425E79BF900EBA92E /* SnowView.m in Sources */,
 				8E9C8F9825ECD4DC0062FB69 /* MainTabbarViewController.m in Sources */,
+				8E29213525F0C61F00BF0EE0 /* ThemeTools.m in Sources */,
 				8E2D1D2F25E7989D00EBA92E /* UIImage+category.m in Sources */,
-				8E29207A25EF82AC00BF0EE0 /* HourModal.m in Sources */,
 				8E2D1D5525E79B6C00EBA92E /* Files.m in Sources */,
 				8E9C8FA925ECD54C0062FB69 /* WeatherController.m in Sources */,
 				8E2D1D5825E79B6C00EBA92E /* Links.m in Sources */,
@@ -680,6 +696,8 @@
 				8E2D1CBD25E7872100EBA92E /* SceneDelegate.m in Sources */,
 				8E2D1D3125E7989D00EBA92E /* colors.m in Sources */,
 				8E2D1D0525E78A2F00EBA92E /* WeatherManager.m in Sources */,
+				8E29211725F0A8AA00BF0EE0 /* WeatherViewModal.m in Sources */,
+				8E29214B25F0CFCB00BF0EE0 /* DateUtil.m in Sources */,
 				8E2D1D3025E7989D00EBA92E /* UIView+category.m in Sources */,
 				8E2D1D5325E79B6C00EBA92E /* BaseView.m in Sources */,
 				8E34FA1925EE15F6002B16B1 /* PreviewView.m in Sources */,
@@ -849,9 +867,44 @@
 					"$(PROJECT_DIR)/weather/sdk",
 				);
 				INFOPLIST_FILE = weather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReactiveObjC\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.linzaifei.weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -875,9 +928,44 @@
 					"$(PROJECT_DIR)/weather/sdk",
 				);
 				INFOPLIST_FILE = weather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"MJRefresh\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"ReactiveObjC\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.linzaifei.weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";

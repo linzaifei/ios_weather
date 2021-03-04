@@ -8,7 +8,7 @@
 #import "AppDelegate.h"
 #import "BaseNavigationController.h"
 #import "MainTabbarViewController.h"
-
+#import "WeatherManager.h"
 @interface AppDelegate ()
 
 @end
@@ -22,6 +22,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = [[MainTabbarViewController alloc] init];
+    [[WeatherManager shareInstance] initWeather];
     return YES;
 }
 

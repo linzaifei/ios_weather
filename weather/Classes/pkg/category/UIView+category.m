@@ -33,6 +33,13 @@
     layer.locations =locations;
 }
 
+-(void)addShadow{
+    self.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(3,3);
+    self.layer.shadowOpacity = 0.3;//阴影透明度，默认0
+    self.layer.shadowRadius = 4;//阴影半径，默认3
+
+}
 @end
 
 @implementation UIView(layer)

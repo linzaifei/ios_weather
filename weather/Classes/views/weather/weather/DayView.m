@@ -6,7 +6,9 @@
 //
 
 #import "DayView.h"
-
+#import <QWeather/WeatherBaseClass.h>
+#import "CodeToString.h"
+#import "DateUtil.h"
 @interface DayView()
 @property(nonatomic,strong)NSMutableArray<DayItemView*> *dayArrs;
 @property(nonatomic,strong)UIScrollView *scrollView;
@@ -24,24 +26,28 @@
 
 
 -(void)setUI{
+    
     self.dayArrs = [NSMutableArray array];
-    self.backgroundColor = [UIColor  colorWithHexLightColor:COLOR_WHITE darkColor:COLOR_WHITE];
-    [self addRadius:10];
+    
+    UIView *bg = [UIView new];
+    [self addSubview:bg];
+    bg.backgroundColor = [UIColor  colorWithHexLightColor:COLOR_WHITE darkColor:COLOR_WHITE];
+    [bg addRadius:10];
     
     UILabel *titleLabel = [UILabel new];
     titleLabel.text = @"未来15天天气";
     titleLabel.font = [UIFont systemFontOfSize:13];
     titleLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GREY darkColor:COLOR_GREY];
-    [self addSubview:titleLabel];
+    [bg addSubview:titleLabel];
     
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.showsHorizontalScrollIndicator = NO;
-    [self addSubview:self.scrollView];
+    [bg addSubview:self.scrollView];
     
     self.tipView = [[UIView  alloc] init];
     self.tipView.backgroundColor = [UIColor colorWithHexLightColor:COLOR_BG darkColor:COLOR_BG];
     [self.tipView addRadius:5];
-    [self addSubview:self.tipView];
+    [bg addSubview:self.tipView];
 
     for (int i=0; i<15; i++) {
         DayItemView *dayItemView = [[DayItemView alloc] init ];
@@ -52,10 +58,13 @@
     [self.dayArrs mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:5 leadSpacing:0 tailSpacing:0];
     [self.dayArrs mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(@0);
-        make.width.equalTo(@40);
+        make.width.equalTo(@50);
     }];
     
     @weakify(self);
+    [bg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@10);
     }];
@@ -76,13 +85,26 @@
     }];
         
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    @weakify(self);
+    [self.dataArr enumerateObjectsUsingBlock:^(Daily*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        DayItemView *itemView = self.dayArrs[idx];
+        itemView.weekLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"w"];
+        itemView.dateLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"d"];;
+        itemView.dayLabel.text = obj.textDay;
+        itemView.dayIconLabel.text = [CodeToString getWith:[obj.iconDay intValue]];
+        itemView.weatherProgressView.maxTemp = [obj.tempMax intValue];
+        itemView.weatherProgressView.minTemp = [obj.tempMin intValue];
+        itemView.nightLabel.text = obj.textNight;
+        itemView.nightIconLabel.text =  [CodeToString getWith:[obj.iconNight intValue]];
+        [itemView.weatherProgressView reloadData];
+    }];
+    
+    
 }
-*/
 
 @end
 
@@ -102,15 +124,15 @@
     self.backgroundColor = [UIColor whiteColor];
     
     _weekLabel = [[UILabel alloc] init];
-    _weekLabel.font = [UIFont boldSystemFontOfSize:15];
+    _weekLabel.font = [UIFont systemFontOfSize:15];
     _weekLabel.text = @"五";
     _weekLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GRAY darkColor:COLOR_GRAY];
     [self addSubview:_weekLabel];
     
     _dateLabel = [[UILabel alloc] init];
-    _dateLabel.font = [UIFont boldSystemFontOfSize:15];
+    _dateLabel.font = [UIFont systemFontOfSize:15];
     _dateLabel.text = @"02";
-    _dateLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GRAY darkColor:COLOR_GRAY];
+    _dateLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GREY darkColor:COLOR_GREY];
     [self addSubview:_dateLabel];
     
     _dayLabel = [[UILabel alloc] init];
@@ -120,7 +142,7 @@
     [self addSubview:_dayLabel];
     
     _dayIconLabel = [[UILabel alloc] init];
-    _dayIconLabel.font = [UIFont boldSystemFontOfSize:15];
+    _dayIconLabel.font = [UIFont iconfont:25];
     _dayIconLabel.text = @"晴";
     _dayIconLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GRAY darkColor:COLOR_GRAY];
     [self addSubview:_dayIconLabel];
@@ -138,7 +160,7 @@
     [self addSubview:_nightLabel];
     
     _nightIconLabel = [[UILabel alloc] init];
-    _nightIconLabel.font = [UIFont boldSystemFontOfSize:15];
+    _nightIconLabel.font = [UIFont iconfont:25];
     _nightIconLabel.text = @"晴";
     _nightIconLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GRAY darkColor:COLOR_GRAY];
     [self addSubview:_nightIconLabel];
@@ -213,11 +235,11 @@
     
     self.lineLayer = [CAShapeLayer layer];
     self.lineLayer.lineWidth = 1;
-    self.lineLayer.lineDashPattern= @[@5,@4];
+    self.lineLayer.lineDashPattern= @[@4,@4];
     [self.layer addSublayer:self.lineLayer];
 
     self.tempLayer = [CAShapeLayer layer];
-    self.tempLayer.lineWidth = 5;
+    self.tempLayer.lineWidth = 8;
     self.tempLayer.lineCap = kCALineCapRound;
     [self.layer addSublayer:self.tempLayer];
     
@@ -226,9 +248,11 @@
 
     self.textMaxLayer.alignmentMode = kCAAlignmentCenter;
     self.textMaxLayer.wrapped = YES;
+    self.textMaxLayer.contentsScale =  [UIScreen mainScreen].scale;
     [self.layer addSublayer:self.textMaxLayer];
     
     self.textMinLayer = [CATextLayer layer];
+    self.textMinLayer.contentsScale =  [UIScreen mainScreen].scale;
   
     self.textMinLayer.alignmentMode = kCAAlignmentCenter;
     self.textMinLayer.wrapped = YES;
@@ -248,15 +272,20 @@
     
     
 }
+-(void)reloadData{
+    [self setNeedsDisplay];
+}
 
 - (void)drawRect:(CGRect)rect{
     CGFloat x = rect.size.width/2;
     CGFloat height = rect.size.height;
     
     //计算比例 100° -> height  每度多高
-    CGFloat c = 100.0/height;
+    CGFloat c = 140.0/height;
+   
     //2.计算总高度
     CGFloat h = c *(self.maxTemp - self.minTemp);
+    
     // 计算开始位置
     CGFloat y = height/2.0-self.maxTemp*c;
 

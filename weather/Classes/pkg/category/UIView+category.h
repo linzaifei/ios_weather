@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, BorderDirectionType) {
 //设置水平渐变
 -(void)addGradientColors:(NSArray *)colors;
 
+/* 设置阴影**/
+-(void)addShadow;
+
 @end
 
 

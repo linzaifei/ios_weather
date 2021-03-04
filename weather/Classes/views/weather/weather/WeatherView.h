@@ -8,15 +8,19 @@
 #import "BaseView.h"
 @class TempNowView;
 #import "SunView.h"
+#import <QWeather/WeatherBaseClass.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WeatherView : BaseView
+//@property(nonatomic,strong)UIColor *
 @property(nonatomic,strong,readonly)UIView *defaultView;
 @property(nonatomic,strong,readonly)TempNowView *tempNowView;
+
 @end
 
 
 @interface TempNowView : BaseView
+@property(nonatomic,strong)Now *now;
 /*天气实时温度 */
 @property(nonatomic,strong,readonly)UILabel *tempLabel;
 

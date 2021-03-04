@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*当前日期 今天 明天 */
 @property(nonatomic,strong,readonly)UILabel *timeLabel;
 
+@property(nonatomic,strong,readonly)UILabel *levelLabel;
 @end
 
 NS_ASSUME_NONNULL_END

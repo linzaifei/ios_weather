@@ -17,5 +17,9 @@
     // Drawing code
 }
 */
+-(void)reload{
+    [self setNeedsLayout]; //标记
+    [self layoutIfNeeded];
 
+}
 @end

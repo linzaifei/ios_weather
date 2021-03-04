@@ -52,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /* 进度线颜色*/
 @property(nonatomic,strong,readonly)UIColor *lineColor;
 
+-(void)reloadData;
 @end
 
 NS_ASSUME_NONNULL_END

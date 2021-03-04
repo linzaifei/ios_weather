@@ -12,8 +12,10 @@
 #import "DayView.h"
 #import "HourView.h"
 #import "Files.h"
-#import "HourModal.h"
 
+#import "WeatherViewModal.h"
+#import "UIView+category.h"
+#import "DateUtil.h"
 #ifdef DEBUG
 #define NSLog(FORMAT, ...) fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
@@ -21,70 +23,116 @@
 #endif
 @interface WeatherController ()
 @property(nonatomic,strong)UIScrollView *scrollView;
+@property(nonatomic,copy)NSString *locationId;
+
+@property(nonatomic,strong) SunWeatherView *sunWeatherView;
+@property(nonatomic,strong)PreviewView *previewView;
+@property(nonatomic,strong) HourView *hourView;
+@property(nonatomic,strong)DayView *dayView;
+
+
+
 @end
 
 @implementation WeatherController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
 
-  
+    [DateUtil getDateStrInfo:@"2021-03-04T18:00+08:00"];
     
-       
+    
+    
+    self.locationId =@"101010100";
+
+
     [self layoutView];
-    
- 
+    [self handleData];
 
 }
 
 
+-(void)handleData{
+    
+    WeatherViewModal *model = [[WeatherViewModal alloc] init];
+    @weakify(self);
+    [[model.nowCommend execute:self.locationId] subscribeNext:^(Now* _Nullable x) {
+        @strongify(self);
+        self.sunWeatherView.tempNowView.now = x;
+        [self.sunWeatherView.tempNowView reload];
+    }];
+    
+    [[model.hourCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
+        @strongify(self);
+        self.hourView.dataArr = x;
+        [self.hourView reload];
+    }];
+    
+
+    [[model.fifteenCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
+        @strongify(self);
+        self.dayView.dataArr = x;
+        [self.dayView reload];
+    }];
+    
+    [[model.threeCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
+        @strongify(self);
+        self.previewView.dataArr = x;
+        [self.previewView reload];
+    }];
+    
+    
+}
+
+
+
+
 -(void)layoutView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-//    self.scrollView.contentSize = self.view.frame.size;
+    self.scrollView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.scrollView];
     
     
-    SunWeatherView *sun = [[SunWeatherView alloc] init];
-    sun.backgroundColor = [UIColor whiteColor];
-    [self.scrollView addSubview:sun];
+    self.sunWeatherView = [[SunWeatherView alloc] init];
+    [self.scrollView addSubview:self.sunWeatherView];
+    [self.sunWeatherView addShadow];
     
-    PreviewView *previewView = [[PreviewView alloc] init];
-    [self.scrollView addSubview:previewView];
-   
-    NSDictionary *dic = [Files readLocalJsonWithName:@"hour"];
-    NSArray *dataArr = [HourModal mj_objectArrayWithKeyValuesArray:dic[@"hourly"]];
-    HourView *hourView = [[HourView alloc] init];
-    hourView.dataArr = dataArr;
-    [self.scrollView addSubview:hourView];
+    self.previewView = [[PreviewView alloc] init];
+    [self.scrollView addSubview:self.previewView];
+    [self.previewView addShadow];
+    
+
+    self.hourView = [[HourView alloc] init];
+    [self.scrollView addSubview:self.hourView];
+    [self.hourView addShadow];
     
     
-    DayView *dayView = [[DayView alloc] init];
-    [self.scrollView addSubview:dayView];
+    self.dayView = [[DayView alloc] init];
+    [self.scrollView addSubview:self.dayView];
+    [self.dayView addShadow];
     
-    @weakify(self,previewView,sun,hourView);
-    [sun mas_makeConstraints:^(MASConstraintMaker *make) {
+    @weakify(self);
+    [self.sunWeatherView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.left.equalTo(@10);
         make.width.equalTo(@(self.view.frame.size.width-20));
     }];
-    [previewView mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(sun);
-        make.left.right.equalTo(sun);
-        make.top.equalTo(sun.mas_bottom).offset(15);
-        make.height.equalTo(@100);
+    [self.previewView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.left.right.equalTo(self.sunWeatherView);
+        make.top.equalTo(self.sunWeatherView.mas_bottom).offset(15);
     }];
     
-    [hourView mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(previewView);
-        make.left.right.equalTo(previewView);
-        make.top.equalTo(previewView.mas_bottom).offset(15);
+    [ self.hourView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.left.right.equalTo(self.previewView);
+        make.top.equalTo(self.previewView.mas_bottom).offset(15);
     }];
     
-    [dayView mas_makeConstraints:^(MASConstraintMaker *make) {
-        @strongify(self,hourView);
-        make.left.right.equalTo(hourView);
-        make.top.equalTo(hourView.mas_bottom).offset(15);
+    [self.dayView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.left.right.equalTo( self.hourView);
+        make.top.equalTo( self.hourView.mas_bottom).offset(15);
         make.bottom.equalTo(self.scrollView.mas_bottom);
     }];
     

@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseView : UIView
 
+
+-(void)reload;
 @end
 
 NS_ASSUME_NONNULL_END

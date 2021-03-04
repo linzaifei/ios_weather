@@ -1,0 +1,118 @@
+{
+    "theme": [
+        {
+            "theme_id": "jd",
+            "name": "经典",
+            "theme": [
+                {
+                    "name": "晴",
+                    "color": "#fcbc2c"
+                },
+                {
+                    "name": "云",
+                    "color": "#83A8C2"
+                },
+                {
+                    "name": "阴",
+                    "color": "#67727F"
+                },
+                {
+                    "name": "雨",
+                    "color": "#8DC6D8"
+                },
+                {
+                    "name": "雪",
+                    "color": "#A6B1BC"
+                },
+                {
+                    "name": "雾",
+                    "color": "#C5C9CE"
+                },
+                {
+                    "name": "风",
+                    "color": "#7C7F95"
+                },
+                {
+                    "name": "夜",
+                    "color": "#5B6580"
+                }
+            ]
+        },
+        {
+            "theme_id": "gjh",
+            "name": "高级灰",
+            "theme": [
+                {
+                    "name": "晴",
+                    "color": "#D8CAB2"
+                },
+                {
+                    "name": "云",
+                    "color": "#9EA8B6"
+                },
+                {
+                    "name": "阴",
+                    "color": "#A6A6A8"
+                },
+                {
+                    "name": "雨",
+                    "color": "#B7C3B2"
+                },
+                {
+                    "name": "雪",
+                    "color": "#C2CAD5"
+                },
+                {
+                    "name": "雾",
+                    "color": "#B6B1A6"
+                },
+                {
+                    "name": "风",
+                    "color": "#C4B8A3"
+                },
+                {
+                    "name": "夜",
+                    "color": "#939391"
+                }
+            ]
+        },
+        {
+            "theme_id": "zgf",
+            "name": "中国风",
+            "theme": [
+                {
+                    "name": "晴",
+                    "color": "#F5B747"
+                },
+                {
+                    "name": "云",
+                    "color": "#5A8CAA"
+                },
+                {
+                    "name": "阴",
+                    "color": "#788689"
+                },
+                {
+                    "name": "雨",
+                    "color": "#6BBDA4"
+                },
+                {
+                    "name": "雪",
+                    "color": "#BDC9C6"
+                },
+                {
+                    "name": "雾",
+                    "color": "#788689"
+                },
+                {
+                    "name": "风",
+                    "color": "#A28566"
+                },
+                {
+                    "name": "夜",
+                    "color": "#6A6880"
+                }
+            ]
+        }
+    ]
+}

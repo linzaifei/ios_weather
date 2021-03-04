@@ -6,7 +6,7 @@
 //
 
 #import "WeatherView.h"
-
+#import "DateUtil.h"
 
 @implementation WeatherView
 - (instancetype)init{
@@ -18,17 +18,21 @@
 }
 
 -(void)setWeatherView{
-
-    [self addRadius:10];
+    UIView *bg = [UIView new];
+    [self addSubview:bg];
+    [bg addRadius:10];
     
     _defaultView = [[UIView alloc] init];
-    [self addSubview:self.defaultView];
+    [bg addSubview:self.defaultView];
     
     _tempNowView = [[TempNowView alloc] init];
     _tempNowView.backgroundColor = [UIColor whiteColor];
-    [self addSubview: _tempNowView];
+    [bg addSubview: _tempNowView];
     
     @weakify(self);
+    [bg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
     [_defaultView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(@0);
         make.height.equalTo(@220);
@@ -66,9 +70,7 @@
     _tempWordLabel = [[UILabel alloc] init];
     _tempWordLabel.font = [UIFont boldSystemFontOfSize:15];
     _tempWordLabel.text = @"晴";
-//    _tempWordLabel.backgroundColor = [UIColor orangeColor];
     _tempWordLabel.textAlignment = NSTextAlignmentCenter;
-//    [_tempWordLabel addRadius:5];
     _tempWordLabel.textColor = [UIColor colorWithHexLightColor:COLOR_DARK darkColor:COLOR_DARK];
     [self addSubview:_tempWordLabel];
     
@@ -111,6 +113,17 @@
     }];
 }
 
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    
+    if(self.now){
+        _tempLabel.text = [NSString stringWithFormat:@"%@°",self.now.temp];
+        _tempWordLabel.text = self.now.text;
+        _timeLabel.text = [NSString stringWithFormat:@"%@ / %@ 周%@",[DateUtil getDateStrInfo:self.now.obsTime][@"m"],[DateUtil getDateStrInfo:self.now.obsTime][@"d"],[DateUtil getDateStrInfo:self.now.obsTime][@"w"]];
+        _windLabel.text = [NSString stringWithFormat:@"%@ / %@级",self.now.windDir,self.now.windScale];
+    }
+}
 @end
 
 
@@ -132,8 +145,9 @@
     
     [_sunView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(@0);
-        
     }];
+    
+  
 }
 
 @end

@@ -32,7 +32,7 @@
     self.lineDash = @[@20,@15];
     self.lineHeight = 8;
     self.angle = 30;
-    self.duration = 20;
+    self.duration = 40;
     self.layer.masksToBounds = YES;
     
     

@@ -1,4 +1,4 @@
-platform :ios, '8.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'weather' do
@@ -8,6 +8,6 @@ target 'weather' do
     pod 'ReactiveObjC'
     pod 'AFNetworking'
     pod 'MBProgressHUD'
-    pod 'SDWebImage'
+   pod 'SDWebImage', '~> 5.9.5'
    
 end

@@ -7,7 +7,8 @@
 
 #import "HourView.h"
 #import "CodeToString.h"
-#import "HourModal.h"
+#import <QWeather/WeatherBaseClass.h>
+#import "DateUtil.h"
 @interface HourView()
 @property(nonatomic,strong)NSMutableArray<HourItemView*> *dayArrs;
 @property(nonatomic,strong)UIScrollView *scrollView;
@@ -25,24 +26,27 @@
 
 
 -(void)setUI{
+    UIView *bg = [UIView new];
+    [self addSubview:bg];
     self.dayArrs = [NSMutableArray array];
-    self.backgroundColor = [UIColor  colorWithHexLightColor:COLOR_WHITE darkColor:COLOR_WHITE];
-    [self addRadius:10];
+    bg.backgroundColor = [UIColor  colorWithHexLightColor:COLOR_WHITE darkColor:COLOR_WHITE];
+    [bg addRadius:10];
+
     
     UILabel *titleLabel = [UILabel new];
     titleLabel.text = @"未来24小时天气";
     titleLabel.font = [UIFont systemFontOfSize:13];
     titleLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GREY darkColor:COLOR_GREY];
-    [self addSubview:titleLabel];
+    [bg addSubview:titleLabel];
     
     self.scrollView = [[UIScrollView alloc] init];
     self.scrollView.showsHorizontalScrollIndicator = NO;
-    [self addSubview:self.scrollView];
+    [bg addSubview:self.scrollView];
     
     self.tipView = [[UIView  alloc] init];
     self.tipView.backgroundColor = [UIColor colorWithHexLightColor:COLOR_BG darkColor:COLOR_BG];
     [self.tipView addRadius:5];
-    [self addSubview:self.tipView];
+    [bg addSubview:self.tipView];
 
     for (int i=0; i<24; i++) {
         HourItemView *hourItemView = [[HourItemView alloc] init ];
@@ -57,6 +61,9 @@
     }];
     
     @weakify(self);
+    [bg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(@0);
+    }];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(@10);
     }];
@@ -79,26 +86,14 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-//    cloud = 23;
-//    dew = 1020;
-//    fxTime = "2013-12-30T13:00+08:00";
-//    humidity = 40;
-//    icon = 101;
-//    pop = 5;
-//    precip = "1.2";
-//    pressure = 1020;
-//    temp = 2;
-//    text = "\U591a\U4e91";
-//    wind360 = 305;
-//    windDir = "\U897f\U5317";
-//    windScale = 3;
-//    windSpeed = 15;
-    [self.dataArr enumerateObjectsUsingBlock:^(HourModal*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    @weakify(self);
+    [self.dataArr enumerateObjectsUsingBlock:^(Hourly*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
         HourItemView *itemView = self.dayArrs[idx];
-        itemView.tempLabel.text =[NSString stringWithFormat:@"%d°",obj.temp];
-        itemView.tempWordLabel.text = obj.text;
-        itemView.tempIconLabel.text = [CodeToString getWith:obj.icon];
-        
+        itemView.hourLabel.text= [NSString stringWithFormat:@"%@:00",[DateUtil getDateStrInfo:obj.fxTime][@"h"]];  
+        itemView.tempWordLabel.text =obj.text ;
+        itemView.tempIconLabel.text = [CodeToString getWith:[obj.icon intValue]];
+        itemView.tempLabel.text =[NSString stringWithFormat:@"%@°",obj.temp];
     }];
     
     
@@ -123,9 +118,9 @@
     self.backgroundColor = [UIColor whiteColor];
     
     _hourLabel = [[UILabel alloc] init];
-    _hourLabel.font = [UIFont boldSystemFontOfSize:15];
+    _hourLabel.font = [UIFont systemFontOfSize:15];
     _hourLabel.text = @"14:00";
-    _hourLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GRAY darkColor:COLOR_GRAY];
+    _hourLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GREY darkColor:COLOR_GREY];
     [self addSubview:_hourLabel];
     
     _tempIconLabel = [[UILabel alloc] init];
@@ -139,8 +134,8 @@
     [self addSubview:_tempWordLabel];
     
     _tempLabel = [[UILabel alloc] init];
-    _tempLabel.font = [UIFont boldSystemFontOfSize:15];
-    _tempLabel.textColor = [UIColor colorWithHexLightColor:COLOR_GRAY darkColor:COLOR_GRAY];
+    _tempLabel.font = [UIFont systemFontOfSize:15];
+    _tempLabel.textColor = [UIColor colorWithHexLightColor:COLOR_DARK darkColor:COLOR_DARK];
     [self addSubview:_tempLabel];
     
   
