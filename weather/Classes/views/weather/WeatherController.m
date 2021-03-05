@@ -16,12 +16,15 @@
 #import "WeatherViewModal.h"
 #import "UIView+category.h"
 #import "DateUtil.h"
+#import "ThemeTools.h"
 #ifdef DEBUG
 #define NSLog(FORMAT, ...) fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
 #define NSLog(...)
 #endif
-@interface WeatherController ()
+
+@interface WeatherController ()<UIScrollViewDelegate>
+
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,copy)NSString *locationId;
 
@@ -39,11 +42,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [DateUtil getDateStrInfo:@"2021-03-04T18:00+08:00"];
+    [ThemeTools getColorWithName:@"晴"];
     
     
     
     self.locationId =@"101010100";
+
+    
 
 
     [self layoutView];
@@ -80,16 +85,12 @@
         self.previewView.dataArr = x;
         [self.previewView reload];
     }];
-    
-    
 }
-
-
-
 
 -(void)layoutView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     
     
@@ -133,19 +134,20 @@
         @strongify(self);
         make.left.right.equalTo( self.hourView);
         make.top.equalTo( self.hourView.mas_bottom).offset(15);
-        make.bottom.equalTo(self.scrollView.mas_bottom);
+        make.bottom.equalTo(self.scrollView.mas_bottom).offset(-20);
     }];
     
+//    [self.scrollView setContentOffset:CGPointMake(0, 100) animated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
+//-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+//    CGPoint offset = self.scrollView.contentOffset;
+//    CGPoint newOffset = CGPointMake(offset.x+50, offset.y);
+//    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn | UIViewAnimationOptionAutoreverse |UIViewAnimationOptionRepeat animations:^{
+//        [UIView setAnimationRepeatCount: 2];
+//        [self.scrollView setContentOffset:newOffset animated: YES];
+//    } completion:^(BOOL finished) {
+//        [self.scrollView setContentOffset:offset animated:NO];
+//    }];
+//}
 @end

@@ -20,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface TempNowView : BaseView
+
 @property(nonatomic,strong)Now *now;
+
 /*天气实时温度 */
 @property(nonatomic,strong,readonly)UILabel *tempLabel;
 

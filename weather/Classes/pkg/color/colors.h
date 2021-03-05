@@ -46,4 +46,9 @@ FOUNDATION_EXPORT ColorTypes const COLOR_BG;
 
 @end
 
+@interface UIColor (Hex)
++(UIColor *)colorWithHexString:(NSString *)hexColor alpha:(float)opacity;
+
+@end
+
 NS_ASSUME_NONNULL_END

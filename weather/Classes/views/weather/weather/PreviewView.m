@@ -29,6 +29,10 @@
         PreviewItemView * p =[[PreviewItemView alloc] init];
         [self addSubview:p];
         [self.items addObject:p];
+        [p addTarget:^(UIGestureRecognizer * _Nonnull x) {
+         CGPoint point =    [x locationInView:self];
+            NSLog(@"--%@",x.view);
+        }];
     }
     
     [self.items mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedSpacing:10 leadSpacing:0 tailSpacing:0];

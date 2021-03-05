@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, BorderDirectionType) {
 
 @interface UIView (touch)
 //添加点击事件
--(void)addTarget:(void(^)(void))target;
+-(void)addTarget:(void(^)(UIGestureRecognizer *x))target;
 @end
 
 @interface UIView(feedback)

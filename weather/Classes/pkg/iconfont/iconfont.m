@@ -13,7 +13,12 @@
 NSString *const ic_home  = @"\U0000e982";
 NSString *const ic_mine  = @"\U0000e983";
 
-
+/*----*/
+NSString *const ic_wind  = @"\U0000e912";
+NSString *const ic_rain  = @"\U0000e913";
+NSString *const ic_cloud  = @"\U0000e914";
+NSString *const ic_temp  = @"\U0000e915";
+/*----*/
 NSString *const ic_154 = @"\U0000e635";
 NSString *const ic_308 = @"\U0000e636";
 NSString *const ic_318 = @"\U0000e637";

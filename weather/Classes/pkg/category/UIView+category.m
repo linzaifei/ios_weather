@@ -79,12 +79,12 @@
 
 @implementation  UIView (touch)
 
--(void)addTarget:(void(^)(void))target{
+-(void)addTarget:(void(^)(UIGestureRecognizer *x))target{
     self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGesturRecognizer = [[UITapGestureRecognizer alloc] init];
     [tapGesturRecognizer.rac_gestureSignal subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
         if(target){
-            target();
+            target(x);
         }
     }];
     [self addGestureRecognizer:tapGesturRecognizer];

@@ -9,6 +9,7 @@
 #import <QWeather/WeatherBaseClass.h>
 #import "CodeToString.h"
 #import "DateUtil.h"
+#import "ThemeTools.h"
 @interface DayView()
 @property(nonatomic,strong)NSMutableArray<DayItemView*> *dayArrs;
 @property(nonatomic,strong)UIScrollView *scrollView;
@@ -96,10 +97,13 @@
         itemView.dateLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"d"];;
         itemView.dayLabel.text = obj.textDay;
         itemView.dayIconLabel.text = [CodeToString getWith:[obj.iconDay intValue]];
+        itemView.dayIconLabel.textColor = [ThemeTools getColorWithName:obj.textDay];
         itemView.weatherProgressView.maxTemp = [obj.tempMax intValue];
         itemView.weatherProgressView.minTemp = [obj.tempMin intValue];
+        itemView.weatherProgressView.color =[ThemeTools getColorWithName:obj.textDay];
         itemView.nightLabel.text = obj.textNight;
         itemView.nightIconLabel.text =  [CodeToString getWith:[obj.iconNight intValue]];
+        itemView.nightIconLabel.textColor = [ThemeTools getColorWithName:obj.textNight];
         [itemView.weatherProgressView reloadData];
     }];
     
@@ -136,7 +140,7 @@
     [self addSubview:_dateLabel];
     
     _dayLabel = [[UILabel alloc] init];
-    _dayLabel.font = [UIFont boldSystemFontOfSize:15];
+    _dayLabel.font = [UIFont systemFontOfSize:15];
     _dayLabel.text = @"晴";
     _dayLabel.textColor = [UIColor colorWithHexLightColor:COLOR_DARK darkColor:COLOR_DARK];
     [self addSubview:_dayLabel];
@@ -154,7 +158,7 @@
     
     
     _nightLabel = [[UILabel alloc] init];
-    _nightLabel.font = [UIFont boldSystemFontOfSize:15];
+    _nightLabel.font = [UIFont systemFontOfSize:15];
     _nightLabel.text = @"晴";
     _nightLabel.textColor = [UIColor colorWithHexLightColor:COLOR_DARK darkColor:COLOR_DARK];
     [self addSubview:_nightLabel];
@@ -299,7 +303,7 @@
   
     self.textMaxLayer.frame =CGRectMake(0,y-textH-space, rect.size.width, textH);
     self.textMaxLayer.string = [NSString stringWithFormat:@"%d",self.maxTemp];
-    self.textMaxLayer.foregroundColor = [UIColor redColor].CGColor;
+    self.textMaxLayer.foregroundColor = HexRGB(COLOR_GREY).CGColor;
     
     //温度区间
     UIBezierPath *tempPath = [UIBezierPath bezierPath];
@@ -308,7 +312,7 @@
     
     self.textMinLayer.frame =CGRectMake(0, y+h+space, rect.size.width, textH);
     self.textMinLayer.string =[NSString stringWithFormat:@"%d",self.minTemp];
-    self.textMinLayer.foregroundColor = [UIColor redColor].CGColor;
+    self.textMinLayer.foregroundColor = HexRGB(COLOR_GREY).CGColor;
     
     [linePath moveToPoint:CGPointMake(x, y+h+textH+space)];
     [linePath addLineToPoint:CGPointMake(x, height)];

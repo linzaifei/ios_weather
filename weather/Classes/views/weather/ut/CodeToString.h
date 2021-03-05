@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(id)getWith:(int)code;
 
+
 @end
 
 NS_ASSUME_NONNULL_END

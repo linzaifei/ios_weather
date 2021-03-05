@@ -9,9 +9,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
 @interface PreviewView : BaseView
 
 @property(nonatomic,copy)NSArray *dataArr;
+
+//@property(nonatomic,copy)OnClick click;
 
 @end
 
@@ -27,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,readonly)UILabel *timeLabel;
 
 @property(nonatomic,strong,readonly)UILabel *levelLabel;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

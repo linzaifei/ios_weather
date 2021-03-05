@@ -6,7 +6,7 @@
 //
 
 #import "BaseView.h"
-
+#import <QWeather/WeatherBaseClass.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HourView : BaseView
@@ -25,6 +25,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*每小时天气 */
 @property(nonatomic,strong,readonly)UILabel *tempLabel;
+
+@end
+
+@interface HourDetailView : BaseView
+
+@property(nonatomic,strong)Hourly *hourly;
+
+@end
+
+
+@interface IconView : BaseView
+/* icon */
+@property(nonatomic,strong,readonly)UILabel *iconLabel;
+/*文件*/
+@property(nonatomic,strong,readonly)UILabel *textLabel;
+/* value */
+@property(nonatomic,strong,readonly)UILabel *valueLabel;
+
 
 @end
 

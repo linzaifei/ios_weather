@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @interface ThemeTools : NSObject
@@ -16,9 +16,11 @@ FOUNDATION_EXPORT THEME_TYPE  * const THEME_JD;
 FOUNDATION_EXPORT THEME_TYPE  *const THEME_ZGF;
 FOUNDATION_EXPORT THEME_TYPE  *const THEME_GJH;
 
-+(void)saveTheme:(THEME_TYPE *)theme;
++(void)saveThemeKey:(THEME_TYPE *)key;
 
-+(THEME_TYPE *)getCurrentTheme;
++(THEME_TYPE *)getCurrentThemeKey;
+
++(UIColor *)getColorWithName:(NSString *)name;
 
 +(NSArray *)getThemes;
 

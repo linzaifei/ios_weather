@@ -17,6 +17,11 @@ typedef NSString IconFont NS_STRING_ENUM;
 FOUNDATION_EXPORT IconFont *const ic_home;
 FOUNDATION_EXPORT IconFont *const ic_mine;
 
+FOUNDATION_EXPORT IconFont *const ic_wind;
+FOUNDATION_EXPORT IconFont *const ic_rain;
+FOUNDATION_EXPORT IconFont *const ic_cloud;
+FOUNDATION_EXPORT IconFont *const ic_temp;
+
 /*天气icon*/
 FOUNDATION_EXPORT IconFont *const ic_154;
 FOUNDATION_EXPORT IconFont *const ic_308;
