@@ -19,32 +19,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D45CEE7C-FB33-4ECC-9986-001B479BFA30"
-            shouldBeEnabled = "Yes"
+            uuid = "9179A179-C5A4-4D73-8F7B-706DBB106CDF"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weather/Classes/views/weather/weather/PreviewView.m"
+            filePath = "weather/Classes/views/weather/weather/WeatherView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-setUI"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-getRunSetTime:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "226E7F81-911E-4325-8A95-1D0E05350F61"
+            uuid = "73C775E9-FAB4-43FD-9554-00938E4037C4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "weather/Classes/views/weather/weather/PreviewView.m"
+            filePath = "weather/Classes/views/weather/WeatherController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-setUI"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-getLocation"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05C7233A-A61F-4FFA-9EA7-E6A4A169F006"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weather/Classes/views/weather/WeatherController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -17,6 +17,8 @@
 #import "UIView+category.h"
 #import "DateUtil.h"
 #import "ThemeTools.h"
+#import "LocationView.h"
+#import "LocationManager.h"
 #ifdef DEBUG
 #define NSLog(FORMAT, ...) fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
@@ -27,8 +29,9 @@
 
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,copy)NSString *locationId;
+@property(nonatomic,strong)WeatherView *weathView;
 
-@property(nonatomic,strong) SunWeatherView *sunWeatherView;
+@property(nonatomic,strong)LocationView *locationView;
 @property(nonatomic,strong)PreviewView *previewView;
 @property(nonatomic,strong) HourView *hourView;
 @property(nonatomic,strong)DayView *dayView;
@@ -44,27 +47,50 @@
 
     [ThemeTools getColorWithName:@"晴"];
     
-    
-    
+
     self.locationId =@"101010100";
-
     
-
-
+    
+    [self getLocation];
     [self layoutView];
     [self handleData];
-
+    [self setNavigation];
+    @weakify(self);
+    [[RACObserve(self, locationId) skip:1] subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        NSLog(@"location改变 %@",x);
+        [self handleData];
+    }];
+    
 }
 
+#pragma mark -- 设置导航栏
+-(void)setNavigation{
+    self.locationView = [[LocationView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView: self.locationView ];
+    self.navigationItem.title = @"";
+}
+#pragma mark --- 获取定位
+-(void)getLocation{
+    @weakify(self);
+    [[LocationManager shareLocation] startLocation:^(BMKLocation * _Nonnull location) {
+        @strongify(self);
+        BMKLocationReGeocode *rgcData = location.rgcData;
+        self.locationId = [NSString stringWithFormat:@"%f,%f",location.location.coordinate.latitude,location.location.coordinate.longitude];
+        self.locationView.cityLabel.text = rgcData.city;
+        self.locationView.areaLabel.text = [NSString stringWithFormat:@"%@%@%@",rgcData.district,rgcData.street,rgcData.locationDescribe];
+    }];
+}
 
+#pragma mark --- 天气数据请求
 -(void)handleData{
     
     WeatherViewModal *model = [[WeatherViewModal alloc] init];
     @weakify(self);
     [[model.nowCommend execute:self.locationId] subscribeNext:^(Now* _Nullable x) {
         @strongify(self);
-        self.sunWeatherView.tempNowView.now = x;
-        [self.sunWeatherView.tempNowView reload];
+        self.weathView.now = x;
+        [self.weathView reload];
     }];
     
     [[model.hourCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
@@ -73,11 +99,13 @@
         [self.hourView reload];
     }];
     
-
     [[model.fifteenCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
         @strongify(self);
         self.dayView.dataArr = x;
         [self.dayView reload];
+        
+        self.weathView.daily = [x firstObject];
+        [self.weathView reload];
     }];
     
     [[model.threeCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
@@ -87,16 +115,17 @@
     }];
 }
 
+#pragma mark --- 天气试图
 -(void)layoutView{
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     
+    self.weathView = [[WeatherView alloc] init];
+    [self.scrollView addSubview:self.weathView];
+    [self.weathView addShadow];
     
-    self.sunWeatherView = [[SunWeatherView alloc] init];
-    [self.scrollView addSubview:self.sunWeatherView];
-    [self.sunWeatherView addShadow];
     
     self.previewView = [[PreviewView alloc] init];
     [self.scrollView addSubview:self.previewView];
@@ -113,15 +142,15 @@
     [self.dayView addShadow];
     
     @weakify(self);
-    [self.sunWeatherView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.weathView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.top.left.equalTo(@10);
         make.width.equalTo(@(self.view.frame.size.width-20));
     }];
     [self.previewView mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
-        make.left.right.equalTo(self.sunWeatherView);
-        make.top.equalTo(self.sunWeatherView.mas_bottom).offset(15);
+        make.left.right.equalTo(self.weathView);
+        make.top.equalTo(self.weathView.mas_bottom).offset(15);
     }];
     
     [ self.hourView mas_makeConstraints:^(MASConstraintMaker *make) {

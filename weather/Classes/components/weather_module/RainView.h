@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /* 雨滴颜色 clear-orange */
 @property(nonatomic,strong)NSArray<UIColor *> *colors;
 
+@property(nonatomic,strong)UIColor *color;
 
 @end
 

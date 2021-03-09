@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *color;
 
 /* 星星数目 */
-@property(nonatomic,assign)int count ;
+@property(nonatomic,assign,readonly)int count ;
 
 /* 星星颜色 */
 @property(nonatomic,strong)UIColor *starColor ;

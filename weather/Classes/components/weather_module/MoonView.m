@@ -10,6 +10,8 @@
 @property(nonatomic ,strong)CAShapeLayer *moonLayer ;
 @property(nonatomic ,strong)CABasicAnimation *animation;
 
+@property(nonatomic ,strong)NSMutableArray *stars;
+
 @end
 @implementation MoonView
 
@@ -29,6 +31,9 @@
     self.space = 30;
     self.starColor = [UIColor orangeColor];
     self.color = [UIColor orangeColor];
+    self.stars = [NSMutableArray array];
+    _count = 8;
+    self.starColor = [UIColor orangeColor];
     self.layer.masksToBounds = YES;
     
     
@@ -37,18 +42,14 @@
     
     self.animation = [CABasicAnimation animation];
 
-
     
-
-    
-    for (int i = 0; i<8; i++) {
-        int radius =[self getRandomNumber:8 to:10];
-        int x =[self getRandomNumber:30 to:200];
-        int y =[self getRandomNumber:10 to:240];
+    for (int i = 0; i<self.count; i++) {
         CAShapeLayer *starLayer = [CAShapeLayer layer];
-        starLayer.path = [self starPath:CGPointMake(x, y) radius:radius].CGPath;
-        starLayer.fillColor = self.starColor.CGColor;;
+        starLayer.lineCap = kCALineCapRound;
+        [self.stars addObject:starLayer];
         [self.layer addSublayer:starLayer];
+        
+       
     }
 
 }
@@ -67,13 +68,44 @@
     CGFloat y0 = self.radius+self.space;
 
      UIBezierPath *path = [UIBezierPath bezierPath];
-    [path addArcWithCenter:CGPointMake(x0, y0) radius:self.radius startAngle:-M_PI_2 endAngle:M_PI_2 clockwise:YES];
-    [path addQuadCurveToPoint:CGPointMake(x0, self.space) controlPoint:CGPointMake(x0+self.space, y0)];
+    [path addArcWithCenter:CGPointMake(x0, y0) radius:self.radius startAngle:-M_PI_2 endAngle:M_PI_2 clockwise:NO];
+    [path addQuadCurveToPoint:CGPointMake(x0, self.space) controlPoint:CGPointMake(x0-self.space-10, y0)];
     self.moonLayer.fillColor = self.color.CGColor;
     self.moonLayer.path = path.CGPath;
     
+    for (CAShapeLayer *starLayer in self.stars) {
+        int radius =[self getRandomNumber:5 to:10];
+        int x =[self getRandomNumber:30 to:rect.size.width-30];
+        int y =[self getRandomNumber:10 to:rect.size.height-10];
+//        CGFloat opacity = (rand() % 1 + 0.5);
+//        starLayer.opacity = opacity;
+        starLayer.path = [self starNewPath:CGPointMake(x, y) radius:radius].CGPath;
+        starLayer.lineWidth = 4;
+        starLayer.strokeColor = self.starColor.CGColor;
+        
+        self.animation.keyPath = @"opacity";
+        self.animation.toValue = @(0.3);
+        self.animation.duration = 3;
+        self.animation.repeatCount= MAXFLOAT;
+        self.animation.autoreverses = YES;
+        
     
+        [starLayer addAnimation:self.animation forKey:@""];
+    }
     
+   
+    
+}
+
+
+-(UIBezierPath *)starNewPath:(CGPoint )center radius:(CGFloat)radius{
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:CGPointMake(center.x-radius/2.0, center.y)];
+    [path addLineToPoint:CGPointMake(center.x+radius/2.0, center.y)];
+    
+    [path moveToPoint:CGPointMake(center.x, center.y-radius/2.0)];
+    [path addLineToPoint:CGPointMake(center.x, center.y+radius/2.0)];
+    return path;
 }
 
 /**

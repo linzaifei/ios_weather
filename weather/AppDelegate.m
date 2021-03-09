@@ -9,6 +9,7 @@
 #import "BaseNavigationController.h"
 #import "MainTabbarViewController.h"
 #import "WeatherManager.h"
+#import "LocationManager.h"
 @interface AppDelegate ()
 
 @end
@@ -23,6 +24,7 @@
     [self.window makeKeyAndVisible];
     self.window.rootViewController = [[MainTabbarViewController alloc] init];
     [[WeatherManager shareInstance] initWeather];
+    [[LocationManager shareLocation] initSDK];
     return YES;
 }
 

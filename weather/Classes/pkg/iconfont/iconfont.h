@@ -21,6 +21,11 @@ FOUNDATION_EXPORT IconFont *const ic_wind;
 FOUNDATION_EXPORT IconFont *const ic_rain;
 FOUNDATION_EXPORT IconFont *const ic_cloud;
 FOUNDATION_EXPORT IconFont *const ic_temp;
+FOUNDATION_EXPORT IconFont *const ic_search;
+
+
+
+
 
 /*天气icon*/
 FOUNDATION_EXPORT IconFont *const ic_154;

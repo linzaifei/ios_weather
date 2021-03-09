@@ -18,6 +18,9 @@ NSString *const ic_wind  = @"\U0000e912";
 NSString *const ic_rain  = @"\U0000e913";
 NSString *const ic_cloud  = @"\U0000e914";
 NSString *const ic_temp  = @"\U0000e915";
+NSString *const ic_search  = @"\U0000e63f";
+
+
 /*----*/
 NSString *const ic_154 = @"\U0000e635";
 NSString *const ic_308 = @"\U0000e636";

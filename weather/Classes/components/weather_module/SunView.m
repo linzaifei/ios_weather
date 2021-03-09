@@ -33,8 +33,9 @@
     self.lineHeight = 8;
     self.angle = 30;
     self.duration = 40;
-    self.layer.masksToBounds = YES;
     
+    self.layer.masksToBounds = YES;
+    self.backgroundColor = [UIColor whiteColor];
     
     self.sunLayer = [CAShapeLayer layer];
     [self.layer addSublayer:self.sunLayer];

@@ -9,5 +9,6 @@ target 'weather' do
     pod 'AFNetworking'
     pod 'MBProgressHUD'
    pod 'SDWebImage', '~> 5.9.5'
+   pod 'BMKLocationKit'
    
 end

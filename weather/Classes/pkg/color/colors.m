@@ -22,6 +22,26 @@ int const COLOR_WHITE = 0xffffff;//白色
 int const COLOR_LINE = 0xeeeeee;//分割线
 
 
+//组件
+int const COLOR_SUN_BG = 0xf7f3ea;//
+int const COLOR_SUN = 0xfbca61;//
+//moon
+int const COLOR_MOON_BG = 0xc2c5ca;
+int const COLOR_MOON = 0xfbbc36;
+int const COLOR_STAR = 0x8a8e92;
+//rain
+int const COLOR_RAIN_BG = 0xEBF7FA;
+int const COLOR_RAIN = 0x889d9f;
+
+//rain
+int const COLOR_CLOUD_BG = 0xE7EAEC;
+int const COLOR_CLOUD = 0x8d99a6;
+//rain
+int const COLOR_FOG_BG = 0xE5E6E6;
+int const COLOR_FOG = 0x8d99a6;
+
+//140,149,165
+
 @end
 
 

@@ -7,24 +7,75 @@
 
 #import "CloudView.h"
 @interface CloudView()
-@property(nonatomic,strong)CAReplicatorLayer *relayer;
-@property(nonatomic,strong)CABasicAnimation *animation;
-@property(nonatomic,strong)CALayer *celllayer;
+/*
+ @property(nonatomic,strong)CAReplicatorLayer *relayer;
+ @property(nonatomic,strong)CABasicAnimation *animation;
+ @property(nonatomic,strong)CALayer *celllayer;
 
+ */
 
+@property(nonatomic,strong)CAEmitterLayer *emitterLayer;
+@property(nonatomic,strong)CAEmitterCell *cell;
 
 @end
 @implementation CloudView
 
-- (instancetype)init
-{
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
     if (self) {
-        [self setUI];
+        [self cloud];
     }
     return self;
 }
 
+-(void)cloud{
+    
+    self.layer.masksToBounds = YES;
+    self.color= [UIColor orangeColor];
+    
+    self.emitterLayer = [CAEmitterLayer layer];
+    self.emitterLayer.emitterShape =kCAEmitterLayerLine;
+    self.emitterLayer.emitterMode = kCAEmitterLayerSurface;
+    self.emitterLayer.renderMode = kCAEmitterLayerAdditive;
+    
+    [self.layer addSublayer:self.emitterLayer];
+    
+    
+    self.cell = [CAEmitterCell emitterCell];
+    
+    self.cell.birthRate = 1.f;
+    self.cell.lifetime = 50.f;
+    self.cell.lifetimeRange = 50.f;
+    self.cell.xAcceleration = 10.f;
+    
+    self.cell.velocity = 1;
+    self.cell.velocityRange = 40;
+    
+    self.cell.scale = 0.8;
+    self.cell.scaleRange = 0.4;
+    self.cell.scaleSpeed = 0.01;
+    self.cell.contents = (id)[UIImage imageNamed:@"yun"].CGImage;
+    self.emitterLayer.emitterCells = @[self.cell];
+ 
+    
+    
+}
+
+
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+    self.emitterLayer.emitterPosition = CGPointMake(0,rect.size.height/2);
+    self.emitterLayer.emitterSize =rect.size;
+  
+    self.cell.color = HexRGB(COLOR_CLOUD).CGColor;
+   
+    
+}
+
+
+/*
 -(void)setUI{
     
     self.mainColor = [UIColor orangeColor];
@@ -66,7 +117,7 @@
     
     self.animation.autoreverses = YES;
     self.animation.repeatCount = MAXFLOAT;
-    [ self.celllayer addAnimation:self.animation forKey:@""];
+    [self.celllayer addAnimation:self.animation forKey:@""];
 }
 
 
@@ -93,5 +144,5 @@
     
 }
 
-
+ */
 @end
