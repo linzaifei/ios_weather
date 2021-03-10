@@ -10,6 +10,5 @@
 
 @implementation Links
 
-
-NSString *const HomeLink = @"大大萨达多";
+NSString *const minutely = @"https://devapi.qweather.com/v7/minutely/5m";
 @end

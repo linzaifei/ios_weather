@@ -34,12 +34,11 @@
     self.color= [UIColor orangeColor];
     
     self.emitterLayer = [CAEmitterLayer layer];
-    self.emitterLayer.emitterShape =kCAEmitterLayerLine;
+    self.emitterLayer.emitterShape =kCAEmitterLayerRectangle;
     self.emitterLayer.emitterMode = kCAEmitterLayerSurface;
     self.emitterLayer.renderMode = kCAEmitterLayerAdditive;
     
     [self.layer addSublayer:self.emitterLayer];
-    
     
     self.cell = [CAEmitterCell emitterCell];
     

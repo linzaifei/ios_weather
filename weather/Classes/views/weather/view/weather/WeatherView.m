@@ -78,7 +78,7 @@
 //            
 //        }
         BaseView *baseView1 = [self getWeatherViewText:self.now.text];
-        [baseView1 mas_updateConstraints:^(MASConstraintMaker *make) {
+        [ baseView1 mas_updateConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(@0);
         }];
     }
@@ -183,7 +183,9 @@
 
 - (FogView *)fogView{
     if(_fogView==nil){
-        
+        _fogView = [[FogView alloc] init];
+        _fogView.backgroundColor = [UIColor colorWithHexLightColor:COLOR_LINE darkColor:COLOR_LINE];
+        [self.defaultView addSubview:_fogView];
     }
     return _fogView;
 }

@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ReactiveObjC.h"
+#import <QWeather/QWeather.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WeatherViewModal : NSObject
@@ -23,7 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /* 24h天气数据 */
 @property(nonatomic,strong)RACCommand *hourCommend;
 
-
+/* 分钟降水 _MINUTELY */
+@property(nonatomic,strong)RACCommand *minuteCommend;
 @end
 
 NS_ASSUME_NONNULL_END

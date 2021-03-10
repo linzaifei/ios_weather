@@ -45,6 +45,7 @@
 		8E34FA0D25EDCF93002B16B1 /* WeatherView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E34FA0C25EDCF93002B16B1 /* WeatherView.m */; };
 		8E34FA1925EE15F6002B16B1 /* PreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E34FA1825EE15F6002B16B1 /* PreviewView.m */; };
 		8E34FA1F25EE2623002B16B1 /* DayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E34FA1E25EE2623002B16B1 /* DayView.m */; };
+		8E6A5F2A25F8631F0023C7D9 /* RainChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6A5F2925F8631F0023C7D9 /* RainChartView.m */; };
 		8E9A662C25F70DEF00E44083 /* FogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A662B25F70DEF00E44083 /* FogView.m */; };
 		8E9A663225F70E0B00E44083 /* HazeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A663125F70E0B00E44083 /* HazeView.m */; };
 		8E9A664325F75B4400E44083 /* LocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9A664225F75B4400E44083 /* LocationView.m */; };
@@ -53,6 +54,8 @@
 		8E9C8F9825ECD4DC0062FB69 /* MainTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8F9625ECD4DC0062FB69 /* MainTabbarViewController.m */; };
 		8E9C8FA925ECD54C0062FB69 /* WeatherController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8FA825ECD54C0062FB69 /* WeatherController.m */; };
 		8E9C8FB725ECD58E0062FB69 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8FB625ECD58E0062FB69 /* MineController.m */; };
+		8EF1133825F8A2B800EA2508 /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1133725F8A2B800EA2508 /* NetRequest.m */; };
+		8EF1134925F8B71E00EA2508 /* m.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1134825F8B71E00EA2508 /* m.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +155,8 @@
 		8E34FA1825EE15F6002B16B1 /* PreviewView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreviewView.m; sourceTree = "<group>"; };
 		8E34FA1D25EE2623002B16B1 /* DayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DayView.h; sourceTree = "<group>"; };
 		8E34FA1E25EE2623002B16B1 /* DayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DayView.m; sourceTree = "<group>"; };
+		8E6A5F2825F8631F0023C7D9 /* RainChartView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RainChartView.h; sourceTree = "<group>"; };
+		8E6A5F2925F8631F0023C7D9 /* RainChartView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RainChartView.m; sourceTree = "<group>"; };
 		8E9A662A25F70DEF00E44083 /* FogView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FogView.h; sourceTree = "<group>"; };
 		8E9A662B25F70DEF00E44083 /* FogView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FogView.m; sourceTree = "<group>"; };
 		8E9A663025F70E0B00E44083 /* HazeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HazeView.h; sourceTree = "<group>"; };
@@ -167,6 +172,9 @@
 		8E9C8FA825ECD54C0062FB69 /* WeatherController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherController.m; sourceTree = "<group>"; };
 		8E9C8FB525ECD58E0062FB69 /* MineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineController.h; sourceTree = "<group>"; };
 		8E9C8FB625ECD58E0062FB69 /* MineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineController.m; sourceTree = "<group>"; };
+		8EF1133625F8A2B800EA2508 /* NetRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetRequest.h; sourceTree = "<group>"; };
+		8EF1133725F8A2B800EA2508 /* NetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
+		8EF1134825F8B71E00EA2508 /* m.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = m.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +447,8 @@
 				8E2D1D4E25E79B6C00EBA92E /* config.h */,
 				8E2D1D4F25E79B6C00EBA92E /* Links.h */,
 				8E2D1D5025E79B6C00EBA92E /* Links.m */,
+				8EF1133625F8A2B800EA2508 /* NetRequest.h */,
+				8EF1133725F8A2B800EA2508 /* NetRequest.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -461,6 +471,8 @@
 				8E9A662B25F70DEF00E44083 /* FogView.m */,
 				8E9A663025F70E0B00E44083 /* HazeView.h */,
 				8E9A663125F70E0B00E44083 /* HazeView.m */,
+				8E6A5F2825F8631F0023C7D9 /* RainChartView.h */,
+				8E6A5F2925F8631F0023C7D9 /* RainChartView.m */,
 			);
 			path = weather_module;
 			sourceTree = "<group>";
@@ -515,6 +527,7 @@
 				8E29204525EF6CCA00BF0EE0 /* view */,
 				8E9C8FA725ECD54C0062FB69 /* WeatherController.h */,
 				8E9C8FA825ECD54C0062FB69 /* WeatherController.m */,
+				8EF1134825F8B71E00EA2508 /* m.json */,
 			);
 			path = weather;
 			sourceTree = "<group>";
@@ -633,6 +646,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E29212F25F0C5C000BF0EE0 /* colorTheme.json in Resources */,
+				8EF1134925F8B71E00EA2508 /* m.json in Resources */,
 				8E29206E25EF7FED00BF0EE0 /* iconfont.json in Resources */,
 				8E2D1CC525E7872200EBA92E /* Assets.xcassets in Resources */,
 				8E9A664E25F75C9000E44083 /* iconfont.ttf in Resources */,
@@ -710,6 +724,7 @@
 				8E2D1D5125E79B6C00EBA92E /* BaseViewController.m in Sources */,
 				8E34FA0D25EDCF93002B16B1 /* WeatherView.m in Sources */,
 				8E9A663225F70E0B00E44083 /* HazeView.m in Sources */,
+				8E6A5F2A25F8631F0023C7D9 /* RainChartView.m in Sources */,
 				8E9A662C25F70DEF00E44083 /* FogView.m in Sources */,
 				8E2D1D5725E79B6C00EBA92E /* utils.m in Sources */,
 				8E29204125EF6CC300BF0EE0 /* CodeToString.m in Sources */,
@@ -733,6 +748,7 @@
 				8E29211725F0A8AA00BF0EE0 /* WeatherViewModal.m in Sources */,
 				8E29214B25F0CFCB00BF0EE0 /* DateUtil.m in Sources */,
 				8E2D1D3025E7989D00EBA92E /* UIView+category.m in Sources */,
+				8EF1133825F8A2B800EA2508 /* NetRequest.m in Sources */,
 				8E2D1D5325E79B6C00EBA92E /* BaseView.m in Sources */,
 				8E34FA1925EE15F6002B16B1 /* PreviewView.m in Sources */,
 				8E2D1D6E25E79BF000EBA92E /* RainView.m in Sources */,

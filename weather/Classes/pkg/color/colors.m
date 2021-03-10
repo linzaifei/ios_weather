@@ -36,11 +36,13 @@ int const COLOR_RAIN = 0x889d9f;
 //rain
 int const COLOR_CLOUD_BG = 0xE7EAEC;
 int const COLOR_CLOUD = 0x8d99a6;
-//rain
-int const COLOR_FOG_BG = 0xE5E6E6;
-int const COLOR_FOG = 0x8d99a6;
+//fog
+int const COLOR_FOG = 0xc0c2c5;
 
-//140,149,165
+int const COLOR_RAIN_LINE_DASH = 0xFEFEFE;
+int const COLOR_RAIN_LINE = 0xB0E7E5;
+int const COLOR_RAIN_TEXT = 0xA2A2A2;
+
 
 @end
 

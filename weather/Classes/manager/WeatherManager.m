@@ -6,7 +6,7 @@
 //
 
 #import "WeatherManager.h"
-
+#import <AFNetworking/AFNetworking.h>
 
 
 @implementation WeatherManager
@@ -24,6 +24,7 @@
     QWeatherConfigInstance.publicID = @"HE2102251529471187";
     QWeatherConfigInstance.appKey = @"c3911ba7b0b94c88863615d2dd6eeae9";
     QWeatherConfigInstance.appType = APP_TYPE_DEV;
+
 }
 
 /*
@@ -57,4 +58,7 @@
 -(void)getWeatherInfo:(INQUIRE_TYPE)type location:(NSString *)location sub:(WeatherBlock )sub error:(ErrorBlock)block{
     [self getWeatherInfo:type lang:LANGUAGE_TYPE_ZH unit:UNIT_TYPE_M location:location sub:sub error:block];
 }
+
+
+ 
 @end

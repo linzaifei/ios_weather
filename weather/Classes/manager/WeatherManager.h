@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^WeatherBlock)(WeatherBaseClass *modal);
+typedef void(^WeatherMuinteBlock)(WeatherMinutelyBaseClass *modal);
 typedef void (^ErrorBlock) (NSError *error);
 @interface WeatherManager : NSObject
 
@@ -33,6 +34,12 @@ typedef void (^ErrorBlock) (NSError *error);
  默认中国 公制
  */
 -(void)getWeatherInfo:(INQUIRE_TYPE)type location:(NSString *)location sub:(WeatherBlock)sub error:(ErrorBlock)block;
+
+
+/**
+ 分钟级别降雨量
+ */
+-(void)getMinuteInfo:(NSString*)url params:(NSDictionary*)params sub:(WeatherMuinteBlock )sub error:(ErrorBlock)block;
 
 @end
 

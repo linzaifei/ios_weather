@@ -10,11 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+static NSString *const WebKey = @"695c1fa265ac4c3080018e128e80191a";
+
 @interface Links : NSObject
 
 typedef NSString LinkTypes NS_STRING_ENUM;
-
-FOUNDATION_EXPORT LinkTypes *const HomeLink;
+//分钟级降雨
+FOUNDATION_EXPORT LinkTypes *const minutely;
 
 
 

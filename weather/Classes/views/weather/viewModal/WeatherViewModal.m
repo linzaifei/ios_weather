@@ -7,6 +7,9 @@
 
 #import "WeatherViewModal.h"
 #import "WeatherManager.h"
+#import "Links.h"
+#import "NetRequest.h"
+#import <MJExtension/MJExtension.h>
 @implementation WeatherViewModal
 - (instancetype)init
 {
@@ -94,6 +97,31 @@
         }];
     }];
     
+    
+    _minuteCommend  = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        
+        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber){
+            
+            NSDictionary *params =@{
+                @"location":input,
+                @"key":WebKey,
+            };
+            [NetRequest get:minutely params:params success:^(id  _Nullable obj) {
+                WeatherMinutelyBaseClass *modal =    [WeatherMinutelyBaseClass mj_objectWithKeyValues:obj];
+             
+                if([modal.code isEqual:@"200"]){
+                    [subscriber sendNext:modal];
+                }else{
+                    [subscriber sendNext:nil];
+                }
+                [subscriber sendCompleted];
+            } fail:^(NSError * _Nullable error) {
+                [subscriber sendError:error];
+                [subscriber sendCompleted];
+            }];
+            return nil;
+        }];
+    }];
 }
 
 @end

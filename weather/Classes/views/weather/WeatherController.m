@@ -19,6 +19,9 @@
 #import "ThemeTools.h"
 #import "LocationView.h"
 #import "LocationManager.h"
+#import "RainChartView.h"
+#import "NetRequest.h"
+#import "Files.h"
 #ifdef DEBUG
 #define NSLog(FORMAT, ...) fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
@@ -45,11 +48,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [ThemeTools getColorWithName:@"晴"];
+//    [ThemeTools getColorWithName:@"晴"];
     
 
-    self.locationId =@"101010100";
+    self.locationId =@"118.748552,31.941685"; //@"101010100";
     
+    
+//    NSArray *arr =  [Files readLocalJsonWithName:@"m"];
+    
+    
+//    RainChartView *rainChartView = [[RainChartView alloc] init];
+//    rainChartView.values = arr;
+//    [self.view addSubview:rainChartView];
+//
+//
+//
+//
+//    [rainChartView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(@10);
+//        make.top.equalTo(@150);
+//        make.width.equalTo(@(self.view.frame.size.width-20));
+//        make.height.equalTo(@240);
+//    }];
+//
+   
+    
+    
+    
+  
     
     [self getLocation];
     [self layoutView];
@@ -113,6 +139,13 @@
         self.previewView.dataArr = x;
         [self.previewView reload];
     }];
+    
+//    WeatherViewModal *model = [[WeatherViewModal alloc] init];
+//    @weakify(self);
+//    [[model.minuteCommend execute:self.locationId] subscribeNext:^(WeatherMinutelyBaseClass* _Nullable x) {
+//        @strongify(self);
+//
+//    }];
 }
 
 #pragma mark --- 天气试图
