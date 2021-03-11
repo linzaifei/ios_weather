@@ -84,31 +84,28 @@
         make.left.equalTo(@10);
         make.right.equalTo(@-10);
     }];
-        
+
+    [[RACObserve(self, dataArr) skip:1] subscribeNext:^(id  _Nullable x) {
+        [self.dataArr enumerateObjectsUsingBlock:^(Daily*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            @strongify(self);
+            DayItemView *itemView = self.dayArrs[idx];
+            itemView.weekLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"w"];
+            itemView.dateLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"d"];;
+            itemView.dayLabel.text = obj.textDay;
+            itemView.dayIconLabel.text = [CodeToString getWith:[obj.iconDay intValue]];
+            itemView.dayIconLabel.textColor = [ThemeTools getColorWithName:obj.textDay];
+            itemView.weatherProgressView.maxTemp = [obj.tempMax intValue];
+            itemView.weatherProgressView.minTemp = [obj.tempMin intValue];
+            itemView.weatherProgressView.color =[ThemeTools getColorWithName:obj.textDay];
+            itemView.nightLabel.text = obj.textNight;
+            itemView.nightIconLabel.text =  [CodeToString getWith:[obj.iconNight intValue]];
+            itemView.nightIconLabel.textColor = [ThemeTools getColorWithName:obj.textNight];
+            [itemView.weatherProgressView reloadData];
+        }];
+    }];
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    @weakify(self);
-    [self.dataArr enumerateObjectsUsingBlock:^(Daily*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        @strongify(self);
-        DayItemView *itemView = self.dayArrs[idx];
-        itemView.weekLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"w"];
-        itemView.dateLabel.text = [DateUtil getYYYYMMDDInfo:obj.fxDate][@"d"];;
-        itemView.dayLabel.text = obj.textDay;
-        itemView.dayIconLabel.text = [CodeToString getWith:[obj.iconDay intValue]];
-        itemView.dayIconLabel.textColor = [ThemeTools getColorWithName:obj.textDay];
-        itemView.weatherProgressView.maxTemp = [obj.tempMax intValue];
-        itemView.weatherProgressView.minTemp = [obj.tempMin intValue];
-        itemView.weatherProgressView.color =[ThemeTools getColorWithName:obj.textDay];
-        itemView.nightLabel.text = obj.textNight;
-        itemView.nightIconLabel.text =  [CodeToString getWith:[obj.iconNight intValue]];
-        itemView.nightIconLabel.textColor = [ThemeTools getColorWithName:obj.textNight];
-        [itemView.weatherProgressView reloadData];
-    }];
-    
-    
-}
+
 
 @end
 

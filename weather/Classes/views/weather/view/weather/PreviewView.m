@@ -40,23 +40,23 @@
     [self.items mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.equalTo(@0);
     }];
+
+    @weakify(self);
+    [[RACObserve(self, dataArr) skip:1] subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        [self.dataArr enumerateObjectsUsingBlock:^(Daily*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+          
+           PreviewItemView *itemView = self.items[idx];
+            itemView.tempWordLabel.text= obj.textDay ;
+            itemView.tempLabel.text = [NSString stringWithFormat:@"%@°~%@°",obj.tempMin,obj.tempMax] ;
+            itemView.timeLabel.text = idx==0?@"今":@"明";
+            itemView.levelLabel.text = [NSString stringWithFormat:@"均温%d°",((int) ([obj.tempMax intValue]-[obj.tempMin intValue])/2 + [obj.tempMin intValue])];
+        }];
+    }];
     
 }
 
-- (void)layoutSubviews{
-    [super layoutSubviews];
-    @weakify(self);
-    [self.dataArr enumerateObjectsUsingBlock:^(Daily*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        @strongify(self);
-       PreviewItemView *itemView = self.items[idx];
-        itemView.tempWordLabel.text= obj.textDay ;
-        itemView.tempLabel.text = [NSString stringWithFormat:@"%@°~%@°",obj.tempMin,obj.tempMax] ;
-        itemView.timeLabel.text = idx==0?@"今":@"明";
-        itemView.levelLabel.text = [NSString stringWithFormat:@"均温%d°",((int) ([obj.tempMax intValue]-[obj.tempMin intValue])/2 + [obj.tempMin intValue])];
-    }];
-    
-    
-}
+
 
 @end
 

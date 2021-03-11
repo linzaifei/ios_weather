@@ -46,7 +46,6 @@
     [self addSubview:self.bgView];
     
     
-    
     UILabel *titleLabel = [UILabel new];
     titleLabel.text = @"未来24小时天气";
     titleLabel.font = [UIFont systemFontOfSize:13];
@@ -103,25 +102,27 @@
         [UIView feedback];
         [self changeView:nil];
     }];
-        
+    
+    [[RACObserve(self, dataArr) skip:1] subscribeNext:^(NSArray*  _Nullable x) {
+        @strongify(self);
+        [self.dataArr enumerateObjectsUsingBlock:^(Hourly*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            HourItemView *itemView = self.dayArrs[idx];
+            itemView.hourLabel.text= [NSString stringWithFormat:@"%@:00",[DateUtil getDateStrInfo:obj.fxTime][@"h"]];
+            itemView.tempWordLabel.text =obj.text ;
+            itemView.tempIconLabel.text = [CodeToString getWith:[obj.icon intValue]];
+            itemView.tempIconLabel.textColor = [ThemeTools getColorWithName:obj.text];
+            itemView.tempLabel.text =[NSString stringWithFormat:@"%@°",obj.temp];
+            [itemView addTarget:^(UIGestureRecognizer *x){
+                @strongify(self);
+                [UIView feedback];
+                [self changeView:obj];
+            }];
+        }];
+    }];
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    @weakify(self);
-    [self.dataArr enumerateObjectsUsingBlock:^(Hourly*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        @strongify(self);
-        HourItemView *itemView = self.dayArrs[idx];
-        itemView.hourLabel.text= [NSString stringWithFormat:@"%@:00",[DateUtil getDateStrInfo:obj.fxTime][@"h"]];  
-        itemView.tempWordLabel.text =obj.text ;
-        itemView.tempIconLabel.text = [CodeToString getWith:[obj.icon intValue]];
-        itemView.tempIconLabel.textColor = [ThemeTools getColorWithName:obj.text];
-        itemView.tempLabel.text =[NSString stringWithFormat:@"%@°",obj.temp];
-        [itemView addTarget:^(UIGestureRecognizer *x){
-            @strongify(self);
-            [UIView feedback];
-            [self changeView:obj];
-        }];
-    }];
+   
 }
 
 -(void)changeView:(id)obj{

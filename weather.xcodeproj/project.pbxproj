@@ -56,6 +56,7 @@
 		8E9C8FB725ECD58E0062FB69 /* MineController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E9C8FB625ECD58E0062FB69 /* MineController.m */; };
 		8EF1133825F8A2B800EA2508 /* NetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1133725F8A2B800EA2508 /* NetRequest.m */; };
 		8EF1134925F8B71E00EA2508 /* m.json in Resources */ = {isa = PBXBuildFile; fileRef = 8EF1134825F8B71E00EA2508 /* m.json */; };
+		8EF1136025F9B6C600EA2508 /* ChartUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EF1135F25F9B6C600EA2508 /* ChartUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +176,8 @@
 		8EF1133625F8A2B800EA2508 /* NetRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetRequest.h; sourceTree = "<group>"; };
 		8EF1133725F8A2B800EA2508 /* NetRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetRequest.m; sourceTree = "<group>"; };
 		8EF1134825F8B71E00EA2508 /* m.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = m.json; sourceTree = "<group>"; };
+		8EF1135E25F9B6C600EA2508 /* ChartUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartUtils.h; sourceTree = "<group>"; };
+		8EF1135F25F9B6C600EA2508 /* ChartUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -436,6 +439,8 @@
 				8E2D1D4825E79B6C00EBA92E /* Files.m */,
 				8E29214925F0CFCB00BF0EE0 /* DateUtil.h */,
 				8E29214A25F0CFCB00BF0EE0 /* DateUtil.m */,
+				8EF1135E25F9B6C600EA2508 /* ChartUtils.h */,
+				8EF1135F25F9B6C600EA2508 /* ChartUtils.m */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -751,6 +756,7 @@
 				8EF1133825F8A2B800EA2508 /* NetRequest.m in Sources */,
 				8E2D1D5325E79B6C00EBA92E /* BaseView.m in Sources */,
 				8E34FA1925EE15F6002B16B1 /* PreviewView.m in Sources */,
+				8EF1136025F9B6C600EA2508 /* ChartUtils.m in Sources */,
 				8E2D1D6E25E79BF000EBA92E /* RainView.m in Sources */,
 				8E29204B25EF6FE800BF0EE0 /* HourView.m in Sources */,
 				8E2D1D7A25E79C0600EBA92E /* CloudView.m in Sources */,

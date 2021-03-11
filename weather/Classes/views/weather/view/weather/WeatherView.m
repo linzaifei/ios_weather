@@ -59,30 +59,31 @@
         make.bottom.equalTo(@0);
     }];
     
-}
-
--(void)layoutSubviews{
-    [super layoutSubviews];
-    if(self.now){
-        _tempNowView.tempLabel.text = [NSString stringWithFormat:@"%@°",self.now.temp];
-        _tempNowView.tempWordLabel.text = self.now.text;
-        _tempNowView.timeLabel.text = [NSString stringWithFormat:@"%@ / %@ 周%@",[DateUtil getDateStrInfo:self.now.obsTime][@"m"],[DateUtil getDateStrInfo:self.now.obsTime][@"d"],[DateUtil getDateStrInfo:self.now.obsTime][@"w"]];
-        _tempNowView.windLabel.text = [NSString stringWithFormat:@"%@ / %@级",self.now.windDir,self.now.windScale];
-//        
-//        if (self.defaultView.subviews.count>0) {
-//            BaseView *baseView = [self.defaultView.subviews lastObject];
-//            [baseView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//                make.edges.equalTo(@0);
-//            }];
-////            [baseView removeFromSuperview];e
-//            
-//        }
+    [[[RACObserve(self, now) zipWith:RACObserve(self, daily)] skip:1] subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        self.tempNowView.tempLabel.text = [NSString stringWithFormat:@"%@°",self.now.temp];
+        self.tempNowView.tempWordLabel.text = self.now.text;
+        self.tempNowView.timeLabel.text = [NSString stringWithFormat:@"%@ / %@ 周%@",[DateUtil getDateStrInfo:self.now.obsTime][@"m"],[DateUtil getDateStrInfo:self.now.obsTime][@"d"],[DateUtil getDateStrInfo:self.now.obsTime][@"w"]];
+        self.tempNowView.windLabel.text = [NSString stringWithFormat:@"%@ / %@级",self.now.windDir,self.now.windScale];
+        //
+        //        if (self.defaultView.subviews.count>0) {
+        //            BaseView *baseView = [self.defaultView.subviews lastObject];
+        //            [baseView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        //                make.edges.equalTo(@0);
+        //            }];
+        ////            [baseView removeFromSuperview];e
+        //
+        //        }
         BaseView *baseView1 = [self getWeatherViewText:self.now.text];
         [ baseView1 mas_updateConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(@0);
         }];
-    }
+    }];
+    
 }
+
+//
+
 
 -(BaseView *)getWeatherViewText:(NSString*)text{
     

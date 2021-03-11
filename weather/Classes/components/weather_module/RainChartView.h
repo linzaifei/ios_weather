@@ -6,8 +6,14 @@
 //
 
 #import "BaseView.h"
-
+#import <QWeather/QWeather.h>
+@class RainChartView;
 NS_ASSUME_NONNULL_BEGIN
+@interface RainWeatherCharts : BaseView
+@property(nonatomic,strong,readonly)RainChartView *rainChartView;
+@property(nonatomic,strong)WeatherMinutelyBaseClass *modal;
+@end
+
 
 @interface RainChartView : BaseView
 
@@ -50,5 +56,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @end
+
+@interface RainChartView(values)
+
++(NSArray *)getValuePointsWithArr:(NSArray*)arr row:(CGFloat)row col:(CGFloat)col max:(CGFloat)max;
+
+@end
+
+
 
 NS_ASSUME_NONNULL_END

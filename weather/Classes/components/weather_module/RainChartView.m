@@ -6,7 +6,52 @@
 //
 
 #import "RainChartView.h"
+#import "ChartUtils.h"
 
+@implementation RainWeatherCharts
+
+- (instancetype)init{
+    self = [super init];
+    if (self) {
+        [self  setUI];
+    }
+    return self;
+}
+
+-(void)setUI{
+    
+    _rainChartView = [[RainChartView alloc] init];
+    [self addSubview:_rainChartView];
+    [_rainChartView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(@0);
+        make.top.equalTo(@10);
+        make.height.equalTo(@200);
+    }];
+    
+    @weakify(self);
+    [[RACObserve(self, modal) skip:1] subscribeNext:^(WeatherMinutelyBaseClass*  _Nullable x) {
+        @strongify(self);
+        if([x.summary isEqual:@"未来两小时无降水"]){
+            [self.rainChartView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(@0);
+                make.top.equalTo(@0);
+            }];
+        }else{
+            self.rainChartView.values = x.minutely;
+        }
+    }];
+}
+
+@end
+
+
+@interface RainChartView()
+
+@property(nonatomic,strong)CAShapeLayer *lineLayer;
+@property(nonatomic,strong)CAGradientLayer *gradinentLayer;
+@property(nonatomic,strong)CABasicAnimation *animation;
+
+@end
 @implementation RainChartView
 
 - (instancetype)init{
@@ -18,9 +63,10 @@
 }
 
 -(void)chart{
+    [self addRadius:10];
     self.row = 6;
     self.col = 4;
-    self.bottom_space = 50;
+    self.bottom_space = 40;
     self.space = 20;
     self.lineWidth = 1;
     self.backgroundColor = [UIColor colorWithHexLightColor:COLOR_WHITE darkColor:COLOR_WHITE];
@@ -31,53 +77,36 @@
     self.colColor =[UIColor colorWithHexLightColor:COLOR_RAIN_LINE darkColor:COLOR_RAIN_LINE];
     
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.backgroundColor = [UIColor orangeColor].CGColor
-    ;
+    
     shapeLayer.frame =CGRectMake(0, 0, 400, 280);
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(0, 180)];
-    [self getControlPointx0:40 andy0:200 x1:50 andy1:100 x2:80 andy2:150 x3:140 andy3:180 path:path];
     
-    shapeLayer.path = path.CGPath;
-    shapeLayer.lineWidth = 5;
-    shapeLayer.strokeColor = [UIColor  redColor].CGColor;
-    [self.layer addSublayer:shapeLayer];
-    
-    
-    
-    
-}
 
-- (void)getControlPointx0:(CGFloat)x0 andy0:(CGFloat)y0
-                       x1:(CGFloat)x1 andy1:(CGFloat)y1
-                       x2:(CGFloat)x2 andy2:(CGFloat)y2
-                       x3:(CGFloat)x3 andy3:(CGFloat)y3
-                     path:(UIBezierPath*) path{
-    CGFloat smooth_value =0.6;
-    CGFloat ctrl1_x;
-    CGFloat ctrl1_y;
-    CGFloat ctrl2_x;
-    CGFloat ctrl2_y;
-    CGFloat xc1 = (x0 + x1) /2.0;
-    CGFloat yc1 = (y0 + y1) /2.0;
-    CGFloat xc2 = (x1 + x2) /2.0;
-    CGFloat yc2 = (y1 + y2) /2.0;
-    CGFloat xc3 = (x2 + x3) /2.0;
-    CGFloat yc3 = (y2 + y3) /2.0;
-    CGFloat len1 = sqrt((x1-x0) * (x1-x0) + (y1-y0) * (y1-y0));
-    CGFloat len2 = sqrt((x2-x1) * (x2-x1) + (y2-y1) * (y2-y1));
-    CGFloat len3 = sqrt((x3-x2) * (x3-x2) + (y3-y2) * (y3-y2));
-    CGFloat k1 = len1 / (len1 + len2);
-    CGFloat k2 = len2 / (len2 + len3);
-    CGFloat xm1 = xc1 + (xc2 - xc1) * k1;
-    CGFloat ym1 = yc1 + (yc2 - yc1) * k1;
-    CGFloat xm2 = xc2 + (xc3 - xc2) * k2;
-    CGFloat ym2 = yc2 + (yc3 - yc2) * k2;
-    ctrl1_x = xm1 + (xc2 - xm1) * smooth_value + x1 - xm1;
-    ctrl1_y = ym1 + (yc2 - ym1) * smooth_value + y1 - ym1;
-    ctrl2_x = xm2 + (xc2 - xm2) * smooth_value + x2 - xm2;
-    ctrl2_y = ym2 + (yc2 - ym2) * smooth_value + y2 - ym2;
-    [path addCurveToPoint:CGPointMake(x2, y2) controlPoint1:CGPointMake(ctrl1_x, ctrl1_y) controlPoint2:CGPointMake(ctrl2_x, ctrl2_y)];
+    
+//    self.lineLayer = [CAShapeLayer layer];
+//    self.lineLayer.strokeEnd = 0;
+//    [self.layer addSublayer:self.lineLayer];
+    
+    
+    
+    self.gradinentLayer = [CAGradientLayer layer];
+    self.gradinentLayer.mask = [CAShapeLayer layer];
+    [self.layer addSublayer:self.gradinentLayer];
+    
+    
+    
+
+    self.animation = [CABasicAnimation animation];
+    self.animation .fillMode=kCAFillModeForwards;
+    self.animation .removedOnCompletion = NO;
+    self.animation.keyPath = @"locations";
+//    self.animation.keyPath =@"strokeEnd";
+//    self.animation.duration = 2;
+//    self.animation.fromValue = @0;
+//    self.animation.toValue = @1;
+//    self.animation.autoreverses = NO;
+    
+  
+    
 }
 
 
@@ -149,16 +178,63 @@
         [s drawInRect:CGRectMake(end.x-10,end.y+10, 30, 20) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:13.0],NSForegroundColorAttributeName:self.rowColor}];
     }
     
-    
-    //绘制图表
-    CGFloat x = height - self.bottom_space; // 表示
-    CGFloat average = (width - self.space*2)/self.values.count;//水平平均距离
-    
-    
-    
- 
 
+    //绘制图表
+    CGFloat max = height - self.bottom_space  -self.space; // 表示
+    CGFloat row = (width - self.space*2)/self.values.count;//水平平均距离
+    CGFloat col = max/1.5;
+    
+    NSArray *points = [RainChartView getValuePointsWithArr:self.values row:row col:col max:max];
+    
+    
+    
+    
+    CGRect frme = CGRectMake(self.space, self.space, width-self.space*2, height-self.bottom_space-self.space);
+    UIBezierPath *path = [ChartUtils pathWithPoints:points isCurve:YES maxY:max];
+//    self.lineLayer.frame = frme;
+//    self.lineLayer.fillColor = [UIColor clearColor].CGColor;
+//    self.lineLayer.strokeColor = self.lineColor.CGColor;
+//    self.lineLayer.path = path.CGPath;
+    
+    self.gradinentLayer.frame = frme;
+    self.gradinentLayer.colors = @[(id)self.lineColor.CGColor,(id)[UIColor clearColor].CGColor];
+    self.gradinentLayer.locations = @[@0,@0];
+    self.gradinentLayer.startPoint = CGPointMake(0, 1);
+    self.gradinentLayer.endPoint = CGPointMake(1, 1);
+    self.gradinentLayer.type = kCAGradientLayerAxial;
+    CAShapeLayer *shapeLayer = self.gradinentLayer.mask;
+    shapeLayer.path = path.CGPath;
+    
+
+ 
+   
+    self.animation.fromValue =@[@0,@0];
+    self.animation.toValue =@[@1,@0];
+    self.animation.duration = 2;
+    [self.gradinentLayer addAnimation:self.animation forKey:@"line"];
+
+
+   
 }
 
+
+
+
+
+@end
+
+
+@implementation RainChartView(values)
+
++(NSArray *)getValuePointsWithArr:(NSArray*)arr row:(CGFloat)row col:(CGFloat)col max:(CGFloat)max{
+    
+    NSMutableArray *muArr =[NSMutableArray array];
+    [arr enumerateObjectsUsingBlock:^(NSDictionary* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        CGFloat y = [obj[@"precip"] floatValue]*col;
+        CGPoint p = CGPointMake(row * idx, max-y);
+        [muArr addObject:[NSValue valueWithCGPoint:p]];
+    }];
+    return muArr;
+}
 
 @end

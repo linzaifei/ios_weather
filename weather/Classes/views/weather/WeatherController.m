@@ -38,7 +38,7 @@
 @property(nonatomic,strong)PreviewView *previewView;
 @property(nonatomic,strong) HourView *hourView;
 @property(nonatomic,strong)DayView *dayView;
-
+@property(nonatomic,strong)RainWeatherCharts *rainWeatherCharts;
 
 
 @end
@@ -47,33 +47,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-//    [ThemeTools getColorWithName:@"晴"];
-    
-
     self.locationId =@"118.748552,31.941685"; //@"101010100";
     
-    
-//    NSArray *arr =  [Files readLocalJsonWithName:@"m"];
-    
-    
-//    RainChartView *rainChartView = [[RainChartView alloc] init];
-//    rainChartView.values = arr;
-//    [self.view addSubview:rainChartView];
-//
-//
-//
-//
-//    [rainChartView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(@10);
-//        make.top.equalTo(@150);
-//        make.width.equalTo(@(self.view.frame.size.width-20));
-//        make.height.equalTo(@240);
-//    }];
-//
-   
-    
-
     [self getLocation];
     [self layoutView];
     [self handleData];
@@ -110,39 +85,56 @@
     
     WeatherViewModal *model = [[WeatherViewModal alloc] init];
     @weakify(self);
-    [[model.nowCommend execute:self.locationId] subscribeNext:^(Now* _Nullable x) {
-        @strongify(self);
-        self.weathView.now = x;
-        [self.weathView reload];
+//    [[model.nowCommend execute:self.locationId] subscribeNext:^(Now* _Nullable x) {
+//        @strongify(self);
+//        if(x){
+//            self.weathView.now = x;
+//            [self.weathView reload];
+//        }
+//    }];
+    
+    [[[model.nowCommend execute:self.locationId] zipWith:[model.fifteenCommend execute:self.locationId] ] subscribeNext:^(RACTwoTuple * _Nullable x) {
+        Now *now = [x first];
+        NSArray *dailys = [x second];
+        if(now && dailys){
+            self.dayView.dataArr = dailys;
+            self.weathView.daily = [dailys firstObject];
+            self.weathView.now = now;
+        }
+        NSLog(@"");
     }];
+
     
     [[model.hourCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
         @strongify(self);
-        self.hourView.dataArr = x;
-        [self.hourView reload];
+        if(x && x.count>0){
+            self.hourView.dataArr = x;
+        }
     }];
-    
-    [[model.fifteenCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
-        @strongify(self);
-        self.dayView.dataArr = x;
-        [self.dayView reload];
-        
-        self.weathView.daily = [x firstObject];
-        [self.weathView reload];
-    }];
+
+//    [[model.fifteenCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
+//        @strongify(self);
+//        if(x && x.count>0){
+
+//        }
+//    }];
     
     [[model.threeCommend execute:self.locationId] subscribeNext:^(NSArray* _Nullable x) {
         @strongify(self);
-        self.previewView.dataArr = x;
-        [self.previewView reload];
+        if(x && x.count>0){
+            self.previewView.dataArr = x;
+        }
     }];
     
-//    WeatherViewModal *model = [[WeatherViewModal alloc] init];
-//    @weakify(self);
-//    [[model.minuteCommend execute:self.locationId] subscribeNext:^(WeatherMinutelyBaseClass* _Nullable x) {
-//        @strongify(self);
-//
-//    }];
+    [[model.minuteCommend execute:self.locationId] subscribeNext:^(WeatherMinutelyBaseClass* _Nullable x) {
+        @strongify(self);
+        if([x.code isEqual:@"200"]){
+            self.rainWeatherCharts.modal = x ;///.rainChartView.values = x.minutely;
+        }
+    }];
+    
+
+
 }
 
 #pragma mark --- 天气试图
@@ -156,6 +148,9 @@
     [self.scrollView addSubview:self.weathView];
     [self.weathView addShadow];
     
+    self.rainWeatherCharts = [[RainWeatherCharts alloc] init];
+    [self.scrollView addSubview:self.rainWeatherCharts];
+    [self.rainWeatherCharts addShadow];
     
     self.previewView = [[PreviewView alloc] init];
     [self.scrollView addSubview:self.previewView];
@@ -177,10 +172,16 @@
         make.top.left.equalTo(@10);
         make.width.equalTo(@(self.view.frame.size.width-20));
     }];
-    [self.previewView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.rainWeatherCharts mas_makeConstraints:^(MASConstraintMaker *make) {
         @strongify(self);
         make.left.right.equalTo(self.weathView);
-        make.top.equalTo(self.weathView.mas_bottom).offset(15);
+        make.top.equalTo(self.weathView.mas_bottom);
+    }];
+    
+    [self.previewView mas_makeConstraints:^(MASConstraintMaker *make) {
+        @strongify(self);
+        make.left.right.equalTo(self.rainWeatherCharts);
+        make.top.equalTo(self.rainWeatherCharts.mas_bottom).offset(15);
     }];
     
     [ self.hourView mas_makeConstraints:^(MASConstraintMaker *make) {
