@@ -73,10 +73,7 @@
 //
    
     
-    
-    
-  
-    
+
     [self getLocation];
     [self layoutView];
     [self handleData];

@@ -48,5 +48,68 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C2EACDB5-02E3-4750-880D-C803735E0F20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weather/Classes/views/weather/WeatherController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C2EACDB5-02E3-4750-880D-C803735E0F20 - 7a3801ef70650abb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WeatherController viewDidLoad]"
+                  moduleName = "weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zifei/Desktop/linzaifei/ios/project/weather/weather/Classes/views/weather/WeatherController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "212">
+               </Location>
+               <Location
+                  uuid = "C2EACDB5-02E3-4750-880D-C803735E0F20 - 7a3801ef70650abb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WeatherController viewDidLoad]"
+                  moduleName = "weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zifei/Desktop/linzaifei/ios/project/weather/weather/Classes/views/weather/WeatherController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "C2EACDB5-02E3-4750-880D-C803735E0F20 - 99e601c00c1b74be"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__32-[WeatherController viewDidLoad]_block_invoke"
+                  moduleName = "weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zifei/Desktop/linzaifei/ios/project/weather/weather/Classes/views/weather/WeatherController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
